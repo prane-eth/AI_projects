@@ -1,1 +1,4 @@
-# DS_ML_Full-Stack
+# Data Science Projects
+
+### Projects
+- Shopping data analysis
