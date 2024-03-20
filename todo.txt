@@ -1,4 +1,6 @@
 Create a complete data pipeline
+- Make data realistic using Faker or other packages or searching online
+- Fix no products are sold more than 0 or 1 times
 - Add all these in documentation.
 - Also displaying recommendations to the user.
 
@@ -6,3 +8,4 @@ Create a complete data pipeline
 	displaying both Google ads and custom ads on the platform.
 	- Example: Ads by Peanut butter companies for users buying bread.
 	- Use Orders data
+- Add test cases. If they don't pass, it should throw errors.
