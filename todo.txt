@@ -1,9 +1,8 @@
 Create a complete data pipeline
-- emulate data collection from web, data warehousing,
-	mining, analytics, displaying sponsored product ads using the data.
+- Add all these in documentation.
+- Also displaying recommendations to the user.
+
 - Also custom ads that ad-providers create on my platform, predicting which ad is best suited using NLP,
 	displaying both Google ads and custom ads on the platform.
 	- Example: Ads by Peanut butter companies for users buying bread.
-- Add all these in documentation.
-- Also displaying recommendations to the user.
-- Also readme file containing complete instructions to setup.
+	- Use Orders data
