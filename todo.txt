@@ -1,6 +1,8 @@
 
 
 subtitle generation and dubbing project
+	- reference: https://github.com/prane-eth/HindiYoutube-to-English
+	tasks:
 	- background noise removal is at chunk level
 
 	- Add dubbing
