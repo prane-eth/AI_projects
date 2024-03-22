@@ -1,4 +1,11 @@
-Create a complete data pipeline
+
+Start a subtitle generation and dubbing project
+	if possible, lip syncing
+
+Create election result prediction project
+
+Shopping data analysis:
+- Create a complete data pipeline
 - Make data realistic using Faker or other packages or searching online
 - Fix no products are sold more than 0 or 1 times
 - Add all these in documentation.
@@ -9,3 +16,4 @@ Create a complete data pipeline
 	- Example: Ads by Peanut butter companies for users buying bread.
 	- Use Orders data
 - Add test cases. If they don't pass, it should throw errors.
+- Add more steps using last 4 course assignments.
