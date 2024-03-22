@@ -1,8 +1,12 @@
 
-Start a subtitle generation and dubbing project
-	if possible, lip syncing
 
-Create election result prediction project
+subtitle generation and dubbing project
+	- background noise removal is at chunk level
+
+	- Add dubbing
+	- if possible, lip syncing
+
+
 
 Shopping data analysis:
 - Create a complete data pipeline
@@ -16,4 +20,28 @@ Shopping data analysis:
 	- Example: Ads by Peanut butter companies for users buying bread.
 	- Use Orders data
 - Add test cases. If they don't pass, it should throw errors.
+
+
+Next projects:
+Election result prediction project
+	fake data is generated without using personal data of users
+	use party A, B, ... instead of actual political party names
+	not specific to any state or a country
+Think of more projects that don't exist
+
+
+Steps for data science projects:
+- Documentation on purpose of project
+- Package installation and imports
+- Data collection
+- Data preprocessing, with Data Cleaning
+- Data analysis (EDA), with Data Visualization
+	- Write observations
+- Feature Engineering
+	- includes Feature Selection, Feature Extraction, Feature Scaling
+- Model Building
+- Model Evaluation
+- Hyperparameter Tuning
+- Final Model Building
+- Final observations on what are the most influential features
 - Add more steps using last 4 course assignments.
