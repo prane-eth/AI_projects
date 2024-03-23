@@ -1,5 +1,35 @@
 
 
+content recommendation + user retention system for OTT
+
+- Feature Engineering
+	- Feature Selection using correlation matrix
+	- Feature Extraction
+	- Feature Scaling
+	- Visualization of the selected features with pair plots and Correlation Matrix
+- Train-Test Split
+	- Pre-processing the training and testing data
+- Model Building
+	- Model Selection
+	- Model Building and Training
+	- Model Evaluation
+	- Hyperparameter Tuning
+	- Final Model Building
+- Final evaluation and observations on what are the most influential features
+	- Confusion matrix
+	- Finding Feature Importances of the model
+	- ROC Curve, Precision-Recall Curve
+- Visualizations of the results
+- Conclusion
+
+
+
+
+
+
+
+
+
 subtitle generation and dubbing project
 	- reference: https://github.com/prane-eth/HindiYoutube-to-English
 	tasks:
