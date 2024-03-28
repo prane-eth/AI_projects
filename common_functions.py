@@ -26,6 +26,8 @@ from sklearn.model_selection import cross_val_score
 
 RANDOM_STATE = 42
 
+np.random.seed(RANDOM_STATE)
+
 current_dir = os.path.dirname(os.path.realpath(__file__))
 
 datasets_dir = os.path.join(current_dir, 'datasets')
@@ -168,6 +170,23 @@ def evaluate_model(model, X_train, y_train, X_test, y_test, X, y):
     except Exception as e:
         print(f'Error with model {model}: {e}')
         return None
+
+
+def get_model_scores(models_to_try, X_train, y_train, X_test, y_test, X, y):
+    # Dictionary to store scores of the tested models
+	model_scores = {}
+
+	for name, model in models_to_try.items():
+		result = evaluate_model(model, X_train, y_train, X_test, y_test, X, y)
+		if result:
+			model_scores[name] = result
+
+	# Converting scores to DataFrame
+	scores_df = pd.DataFrame.from_dict(model_scores, orient='index')
+	scores_df.sort_values(by=['Test Accuracy', 'CV Accuracy', 'Train Accuracy'], ascending=False, inplace=True)
+	scores_df.reset_index(inplace=True)
+	scores_df.rename(columns={'index': 'Model'}, inplace=True)
+	return scores_df
 
 
 # Later, write the code to fetch from kaggle
