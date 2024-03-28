@@ -13,14 +13,18 @@ def ensure_installed(required_packages):
 			subprocess.check_call([sys.executable, '-m', 'pip', 'install', package])
 
 
-required_packages = ['pandas', 'numpy', 'wget', 'zipfile']
+required_packages = ['pandas', 'numpy', 'wget', 'zipfile', 'scikit-learn']
 ensure_installed(required_packages)
 
 import zipfile
 import wget
+
 import pandas as pd
+import numpy as np
+from sklearn.metrics import confusion_matrix, f1_score, roc_auc_score, average_precision_score
+from sklearn.model_selection import cross_val_score
 
-
+RANDOM_STATE = 42
 datasets_dir = 'datasets'
 
 # Create the dataset folder if it doesn't exist
@@ -108,10 +112,62 @@ if not os.path.exists(image_save_path):
 	os.mkdir(image_save_path)
 
 
-def save_plot(filename, plt):
+def save_plot(filename, plt, savingEnabled=True):
+	if not savingEnabled:
+		return
 	if '.' not in filename:  # if no format, add .png
 		filename += '.png'
 	plt.savefig(os.path.join(image_save_path, filename))
 
 
-# Later, write the code to fetch from github or kaggle
+def evaluate_model(model, X_train, y_train, X_test, y_test, X, y):
+    # Evaluates a given model on training and testing data
+    try:
+        model.fit(X_train, y_train)
+
+        y_test_pred = model.predict(X_test)
+
+        # Evaluating on training set and testing set
+        train_accuracy = model.score(X_train, y_train)
+        test_accuracy = model.score(X_test, y_test)
+        overfitting = train_accuracy - test_accuracy
+        if overfitting < 0:  # Overfitting is positive or zero
+            overfitting = 0
+
+        # Cross-validation scores
+        try: # Some models need y in string type
+            cv_scores = cross_val_score(model, X.values, y.astype('str'), cv=5, scoring='accuracy')
+        except ValueError:  # Some models don't accept string type and raise ValueError above
+            cv_scores = cross_val_score(model, X.values, y, cv=5, scoring='accuracy')
+        cv_accuracy = np.mean(cv_scores)
+
+        # Accuracy from confusion matrix
+        conf_matrix = confusion_matrix(y_test, y_test_pred)
+        conf_matrix_accuracy = conf_matrix.diagonal().sum() / conf_matrix.sum()
+        f1 = f1_score(y_test, y_test_pred, average='binary')
+
+        # ROC AUC Score
+        if hasattr(model, 'predict_proba'):
+            y_test_proba = model.predict_proba(X_test)[:, 1]
+            roc_auc = roc_auc_score(y_test, y_test_proba)
+            average_precision = average_precision_score(y_test, y_test_proba)
+        else:
+            roc_auc = None
+            average_precision = None
+
+        return {
+            'Test Accuracy': test_accuracy,
+            'Train Accuracy': train_accuracy,
+            'Overfitting value': overfitting,
+            'CV Accuracy': cv_accuracy,
+            'Confusion Matrix Accuracy': conf_matrix_accuracy,
+            'F1-Score': f1,
+            'ROC AUC Score': roc_auc,
+            'Average Precision Score': average_precision,
+        }
+    except Exception as e:
+        print(f'Error with model {model}: {e}')
+        return None
+
+
+# Later, write the code to fetch from kaggle
