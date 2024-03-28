@@ -25,8 +25,10 @@ from sklearn.metrics import confusion_matrix, f1_score, roc_auc_score, average_p
 from sklearn.model_selection import cross_val_score
 
 RANDOM_STATE = 42
-datasets_dir = 'datasets'
 
+current_dir = os.path.dirname(os.path.realpath(__file__))
+
+datasets_dir = os.path.join(current_dir, 'datasets')
 # Create the dataset folder if it doesn't exist
 if not os.path.exists(datasets_dir):
 	os.makedirs(datasets_dir)
@@ -89,8 +91,6 @@ download_and_extract_dataset_zip(dataset_zip_url, required_files)
 ratings = pd.read_csv(ratings_file)  # Load the file
 '''
 
-current_dir = os.path.dirname(os.path.realpath(__file__))
-
 def load_data_from_url(dataset_url, filename, return_path=False):
 	if not filename:
 		parsed_url = urlparse(dataset_url)
@@ -106,7 +106,7 @@ def load_data_from_url(dataset_url, filename, return_path=False):
 	return df
 
 
-image_save_path = 'images'
+image_save_path = os.path.join(current_dir, 'images')
 # Ensure the save directory exists
 if not os.path.exists(image_save_path):
 	os.mkdir(image_save_path)
