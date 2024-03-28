@@ -1,7 +1,9 @@
 
 in progress:
 
+credit default risk prediction
 content recommendation + user retention system for OTT
+Neural network - mini project
 
 
 

@@ -1,6 +1,7 @@
 # custom files
 media/
 datasets/
+images/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
