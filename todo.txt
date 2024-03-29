@@ -1,9 +1,15 @@
 
 in progress:
 
+credit default:
+	take person details as input, predict whether he will default
+
 content recommendation + user retention system for OTT
 Neural network - mini project
 
+for all completed projects:
+	is possible, create web page with FastAPI and Vite+React to enter person details and predict.
+	no separate FE server. use Vite+React in HTML. server using FastAPI server.
 
 
 on hold:
