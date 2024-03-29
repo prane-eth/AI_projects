@@ -1,34 +1,18 @@
 
+in progress:
+
+credit default:
+	take person details as input, predict whether he will default
 
 content recommendation + user retention system for OTT
+Neural network - mini project
 
-	- Feature Engineering
-		- Feature Selection using correlation matrix
-		- Feature Extraction
-		- Feature Scaling
-		- Visualization of the selected features with pair plots and Correlation Matrix
-	- Train-Test Split
-		- Pre-processing the training and testing data
-	- Model Building
-		- Model Selection
-			- try - Reinforcement Learning, Classification Models (Decision Trees, Random Forests, Gradient Boosting Machines)
-		- Model Building and Training
-		- Model Evaluation
-		- Hyperparameter Tuning
-		- Final Model Building
-	- Final evaluation and observations on what are the most influential features
-		- Confusion matrix
-		- Finding Feature Importances of the model
-		- ROC Curve, Precision-Recall Curve
-	- Visualizations of the results
-	- Conclusion
+for all completed projects:
+	is possible, create web page with FastAPI and Vite+React to enter person details and predict.
+	no separate FE server. use Vite+React in HTML. server using FastAPI server.
 
 
-
-
-
-
-
+on hold:
 
 
 subtitle generation and dubbing project
@@ -62,46 +46,3 @@ Next projects:
 		not specific to any state or a country
 	Think of more projects that don't exist
 
-
-Steps for data science projects:
-- Project Documentation
-	- Define the purpose and objectives of the project
-- Environment Setup
-	- Install necessary packages and libraries
-	- Import required modules
-- Data Acquisition
-	- Collect data from various sources
-- Data Transformation
-	- Clean the data (handle missing values, outliers, etc.)
-	- Manipulate and wrangle the data (merge datasets, create new columns, etc.)
-- Data Preprocessing
-	- Encode categorical variables
-	- Handle imbalanced data, if necessary
-- Exploratory Data Analysis (EDA)
-	- Analyze the data to understand its characteristics
-	- Visualize the data
-	- Document observations
-- Feature Engineering
-	- Select features using correlation matrix or other methods
-	- Extract new features, if applicable
-	- Scale features, if necessary
-	- Visualize the selected features with pair plots and correlation matrix
-- Data Splitting
-	- Split the data into training and testing sets
-	- Preprocess the training and testing data, if necessary
-- Model Development
-	- Select appropriate model(s)
-	- Build and train the model(s)
-	- Evaluate the model(s) using appropriate metrics
-	- Tune hyperparameters, if necessary
-	- Build the final model
-- Post-modeling Analysis
-	- Evaluate the final model and identify the most influential features
-	- Analyze confusion matrix
-	- Determine feature importances
-	- Plot ROC Curve, Precision-Recall Curve, etc.
-- Results Visualization
-	- Create visualizations to present the results
-- Conclusion
-	- Summarize the findings
-	- Suggest next steps or improvements
