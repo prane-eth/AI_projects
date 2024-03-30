@@ -93,7 +93,7 @@ download_and_extract_dataset_zip(dataset_zip_url, required_files)
 ratings = pd.read_csv(ratings_file)  # Load the file
 '''
 
-def load_data_from_url(dataset_url, filename, return_path=False):
+def load_data_from_url(dataset_url, filename=None, return_path=False):
 	if not filename:
 		parsed_url = urlparse(dataset_url)
 		filename = parsed_url.path.split('/')[-1]
@@ -109,16 +109,13 @@ def load_data_from_url(dataset_url, filename, return_path=False):
 
 
 image_save_path = os.path.join(current_dir, 'images')
-# Ensure the save directory exists
-if not os.path.exists(image_save_path):
-	os.mkdir(image_save_path)
-
 
 def save_plot(filename, plt, savingEnabled=True):
 	if not savingEnabled:
 		return
 	if '.' not in filename:  # if no format, add .png
 		filename += '.png'
+	os.makedirs(image_save_path, exist_ok=True)
 	plt.savefig(os.path.join(image_save_path, filename))
 
 

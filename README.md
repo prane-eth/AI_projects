@@ -1,18 +1,16 @@
 # Data Science Projects
 
-### Projects
-
-Completed:
+### Completed:
 - Credit Default Risk Prediction
 
 In progress:
 - Content recommendation for OTT platforms
 
 Upcoming:
-- Neural network - mini project
 - An NLP project
 
-### On Hold:
+On Hold:
+- Neural network - House price prediction
 - Shopping data analysis
 - Subtitle generator
 
