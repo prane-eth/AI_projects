@@ -22,7 +22,9 @@ import wget
 import pandas as pd
 import numpy as np
 from sklearn.metrics import confusion_matrix, f1_score, roc_auc_score, average_precision_score
-from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import cross_val_score, GridSearchCV
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import GradientBoostingClassifier
 
 RANDOM_STATE = 42
 
@@ -104,7 +106,12 @@ def load_data_from_url(dataset_url, filename=None, return_path=False):
 		print('Downloaded.')
 	if return_path:
 		return filepath
-	df = pd.read_csv(filepath)
+	if filename.endswith('.csv'):
+		df = pd.read_csv(filepath)
+	elif filename.endswith('.tsv'):
+		df = pd.read_csv(filepath, sep='\t')
+	else:
+		raise ValueError(f'Unsupported file format: {filename}')
 	return df
 
 
@@ -120,57 +127,57 @@ def save_plot(filename, plt, savingEnabled=True):
 
 
 def evaluate_model(model, X_train, y_train, X_test, y_test, X, y):
-    # Evaluates a given model on training and testing data
-    try:
-        model.fit(X_train, y_train)
+	# Evaluates a given model on training and testing data
+	try:
+		model.fit(X_train, y_train)
 
-        y_test_pred = model.predict(X_test)
+		y_test_pred = model.predict(X_test)
 
-        # Evaluating on training set and testing set
-        train_accuracy = model.score(X_train, y_train)
-        test_accuracy = model.score(X_test, y_test)
-        overfitting = train_accuracy - test_accuracy
-        if overfitting < 0:  # Overfitting is positive or zero
-            overfitting = 0
+		# Evaluating on training set and testing set
+		train_accuracy = model.score(X_train, y_train)
+		test_accuracy = model.score(X_test, y_test)
+		overfitting = train_accuracy - test_accuracy
+		if overfitting < 0:  # Overfitting is positive or zero
+			overfitting = 0
 
-        # Cross-validation scores
-        try: # Some models need y in string type
-            cv_scores = cross_val_score(model, X.values, y.astype('str'), cv=5, scoring='accuracy')
-        except ValueError:  # Some models don't accept string type and raise ValueError above
-            cv_scores = cross_val_score(model, X.values, y, cv=5, scoring='accuracy')
-        cv_accuracy = np.mean(cv_scores)
+		# Cross-validation scores
+		try: # Some models need y in string type
+			cv_scores = cross_val_score(model, X.values, y.astype('str'), cv=5, scoring='accuracy')
+		except ValueError:  # Some models don't accept string type and raise ValueError above
+			cv_scores = cross_val_score(model, X.values, y, cv=5, scoring='accuracy')
+		cv_accuracy = np.mean(cv_scores)
 
-        # Accuracy from confusion matrix
-        conf_matrix = confusion_matrix(y_test, y_test_pred)
-        conf_matrix_accuracy = conf_matrix.diagonal().sum() / conf_matrix.sum()
-        f1 = f1_score(y_test, y_test_pred, average='binary')
+		# Accuracy from confusion matrix
+		conf_matrix = confusion_matrix(y_test, y_test_pred)
+		conf_matrix_accuracy = conf_matrix.diagonal().sum() / conf_matrix.sum()
+		f1 = f1_score(y_test, y_test_pred, average='binary')
 
-        # ROC AUC Score
-        if hasattr(model, 'predict_proba'):
-            y_test_proba = model.predict_proba(X_test)[:, 1]
-            roc_auc = roc_auc_score(y_test, y_test_proba)
-            average_precision = average_precision_score(y_test, y_test_proba)
-        else:
-            roc_auc = None
-            average_precision = None
+		# ROC AUC Score
+		if hasattr(model, 'predict_proba'):
+			y_test_proba = model.predict_proba(X_test)[:, 1]
+			roc_auc = roc_auc_score(y_test, y_test_proba)
+			average_precision = average_precision_score(y_test, y_test_proba)
+		else:
+			roc_auc = None
+			average_precision = None
 
-        return {
-            'Test Accuracy': test_accuracy,
-            'Train Accuracy': train_accuracy,
-            'Overfitting value': overfitting,
-            'CV Accuracy': cv_accuracy,
-            'Confusion Matrix Accuracy': conf_matrix_accuracy,
-            'F1-Score': f1,
-            'ROC AUC Score': roc_auc,
-            'Average Precision Score': average_precision,
-        }
-    except Exception as e:
-        print(f'Error with model {model}: {e}')
-        return None
+		return {
+			'Test Accuracy': test_accuracy,
+			'Train Accuracy': train_accuracy,
+			'Overfitting value': overfitting,
+			'CV Accuracy': cv_accuracy,
+			'Confusion Matrix Accuracy': conf_matrix_accuracy,
+			'F1-Score': f1,
+			'ROC AUC Score': roc_auc,
+			'Average Precision Score': average_precision,
+		}
+	except Exception as e:
+		print(f'Error with model {model}: {e}')
+		return None
 
 
 def get_model_scores(models_to_try, X_train, y_train, X_test, y_test, X, y):
-    # Dictionary to store scores of the tested models
+	# Dictionary to store scores of the tested models
 	model_scores = {}
 
 	for name, model in models_to_try.items():
@@ -184,6 +191,39 @@ def get_model_scores(models_to_try, X_train, y_train, X_test, y_test, X, y):
 	scores_df.reset_index(inplace=True)
 	scores_df.rename(columns={'index': 'Model'}, inplace=True)
 	return scores_df
+
+def hyperparam_tuning(model, X_train, y_train, param_grid=None):
+	if param_grid is None:
+		param_grid = {
+			'iterations': [100, 200, 300],
+			'learning_rate': [0.01, 0.05, 0.1],
+			'depth': [4, 6, 8],
+		}
+	if isinstance(model, GradientBoostingClassifier):
+		# rename or remove unsupported values
+		if 'depth' in param_grid:
+			param_grid['max_depth'] = param_grid.pop('depth')
+		if 'iterations' in param_grid:
+			param_grid['n_estimators'] = param_grid.pop('iterations')
+	if isinstance(model, LogisticRegression):
+		if 'iterations' in param_grid:
+			param_grid['max_iter'] = param_grid.pop('iterations')
+		if 'learning_rate' in param_grid:
+			param_grid.pop('learning_rate')
+		if 'depth' in param_grid:
+			param_grid.pop('depth')
+	param_grid['random_state'] = [RANDOM_STATE]
+	
+	# Define and fit the grid search
+	grid_search = GridSearchCV(estimator=model, param_grid=param_grid, cv=3, scoring='accuracy', verbose=1)
+	grid_search.fit(X_train, y_train)
+
+	# Best parameters and best score
+	print('Best Parameters:', grid_search.best_params_)
+	print('Best Score:', grid_search.best_score_)
+
+	# Return the best estimator
+	return grid_search.best_estimator_
 
 
 # Later, write the code to fetch from kaggle

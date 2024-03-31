@@ -2,15 +2,15 @@
 
 ### Completed:
 - Credit Default Risk Prediction
+- Content recommendation for OTT platforms
+- NLP - Offensive Text Classification
 
 In progress:
-- Content recommendation for OTT platforms
-
-Upcoming:
-- An NLP project
+- Neural network - House price prediction
 
 On Hold:
-- Neural network - House price prediction
 - Shopping data analysis
 - Subtitle generator
 
+Next projects:
+- Election result prediction project

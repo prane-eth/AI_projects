@@ -1,10 +1,6 @@
 
 
 
-in progress:
-
-content recommendation + user retention system for OTT
-Neural network - mini project
 
 for all completed projects:
 	is possible, create web page with FastAPI and Vite+React to enter person details and predict.
