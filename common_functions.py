@@ -73,7 +73,7 @@ def download_and_extract_dataset_zip(dataset_zip_url, required_files):
 		return
 	print('Extracted. \n')
 
-	# Remove the dataset file
+	# Remove the dataset zip file
 	os.remove(dataset_zip_filepath)
 
 
@@ -192,6 +192,7 @@ def get_model_scores(models_to_try, X_train, y_train, X_test, y_test, X, y):
 	scores_df.rename(columns={'index': 'Model'}, inplace=True)
 	return scores_df
 
+
 def hyperparam_tuning(model, X_train, y_train, param_grid=None):
 	if param_grid is None:
 		param_grid = {
@@ -225,5 +226,3 @@ def hyperparam_tuning(model, X_train, y_train, param_grid=None):
 	# Return the best estimator
 	return grid_search.best_estimator_
 
-
-# Later, write the code to fetch from kaggle

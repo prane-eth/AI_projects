@@ -1,16 +1,19 @@
 # Data Science Projects
 
 ### Completed:
-- Credit Default Risk Prediction
-- Content recommendation for OTT platforms
-- NLP - Offensive Text Classification
+- [Loan Default Risk Prediction](Loan_default_risk.ipynb)
+- [Content recommendation for OTT platforms](Content_recommendation.ipynb)
+- [NLP - Offensive Text Classification](NLP_Offensive_Tweets_Classification.ipynb)
+- [Deep Learning - House price prediction](DL_House_price_prediction.ipynb)
 
 In progress:
-- Neural network - House price prediction
+- (None)
 
-On Hold:
-- Shopping data analysis
-- Subtitle generator
+Next:
+- 1 in GenAI & LLMs
 
-Next projects:
+Later:
 - Election result prediction project
+- More in NLP
+- MLOps emulation
+
