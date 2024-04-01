@@ -5,12 +5,13 @@
 - [Content recommendation for OTT platforms](Content_recommendation.ipynb)
 - [NLP - Offensive Text Classification](NLP_Offensive_Tweets_Classification.ipynb)
 - [Deep Learning - House price prediction](DL_House_price_prediction.ipynb)
+- [GenAI & LLMs - Chat with a Wikipedia page](GenAI_Chat_with_Wikipedia_page.ipynb)
 
 In progress:
-- (None)
+- 1 in GenAI & LLMs
 
 Next:
-- 1 in GenAI & LLMs
+- More in GenAI & LLMs
 
 Later:
 - Election result prediction project
