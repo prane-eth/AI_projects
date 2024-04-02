@@ -3,6 +3,7 @@
 ### Completed:
 LLM projects:
 - [LLMs - Chat with a Wikipedia page](LLM_Chat_with_Wikipedia_page.ipynb)
+- [LLMs - Feedback summarizer](LLM_Feedback_summarizer.ipynb)
 
 Data Science projects:
 - [NLP - Offensive Text Classification](NLP_Offensive_Tweets_Classification.ipynb)
@@ -12,7 +13,6 @@ Data Science projects:
 
 #### Upcoming
 Next:
-- [LLMs - Feedback summarizer](LLM_Feedback_summarizer.ipynb)
 - LLM - Frequent feedback for similar products (helpful to newly create a product)
 	- https://nijianmo.github.io/amazon/index.html
 	- https://cseweb.ucsd.edu/~jmcauley/datasets.html#amazon_reviews
