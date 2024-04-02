@@ -1,20 +1,28 @@
 # Data Science Projects
 
-#### Completed:
+### Completed:
 LLM projects:
-- [**GenAI & LLMs** - Chat with a Wikipedia page](GenAI_Chat_with_Wikipedia_page.ipynb)
+- [LLMs - Chat with a Wikipedia page](LLM_Chat_with_Wikipedia_page.ipynb)
 
 Data Science projects:
-- [Loan Default Risk Prediction](Loan_default_risk.ipynb)
-- [Content recommendation for OTT platforms](Content_recommendation.ipynb)
 - [NLP - Offensive Text Classification](NLP_Offensive_Tweets_Classification.ipynb)
 - [Deep Learning - House price prediction](DL_House_price_prediction.ipynb)
+- [ML - Loan Default Risk Prediction](Loan_default_risk.ipynb)
+- [Content recommendation for OTT platforms](Content_recommendation.ipynb)
 
+#### Upcoming
 Next:
+- [LLMs - Feedback summarizer](LLM_Feedback_summarizer.ipynb)
+- LLM - Frequent feedback for similar products (helpful to newly create a product)
+	- https://nijianmo.github.io/amazon/index.html
+	- https://cseweb.ucsd.edu/~jmcauley/datasets.html#amazon_reviews
 - More in GenAI & LLMs
-
-Later:
-- Election result prediction project
 - More in NLP
+- Election result prediction project
 - MLOps emulation
 
+
+What is special from me:
+- Structured code and folders
+- Common functions to reuse - [common_functions.py](common_functions.py)
+- LLMs - Made the LLM calls faster and cheaper for the profitability of the companies
