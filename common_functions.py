@@ -110,6 +110,14 @@ def load_data_from_url(dataset_url, filename=None, return_path=False):
 		df = pd.read_csv(filepath)
 	elif filename.endswith('.tsv'):
 		df = pd.read_csv(filepath, sep='\t')
+	elif filename.endswith('.srt') or filename.endswith('.txt'):
+		try:
+			with open(filepath, 'r') as file:
+				text = file.read()
+			return text
+		except Exception as e:
+			print(f'Error reading {filename}: {e}')
+			return None
 	else:
 		raise ValueError(f'Unsupported file format: {filename}')
 	return df

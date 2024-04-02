@@ -3,6 +3,7 @@ media/
 datasets/
 images/
 catboost_info/
+output/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
