@@ -10,10 +10,6 @@ Data Science projects:
 - [NLP - Offensive Text Classification](NLP_Offensive_Tweets_Classification.ipynb)
 - [Deep Learning - House price prediction](DL_House_price_prediction.ipynb)
 
-
-In progress:
-- [**GenAI & LLMs** - Subtitle translator](GenAI_Subtitle_translator.ipynb)
-
 Next:
 - More in GenAI & LLMs
 
