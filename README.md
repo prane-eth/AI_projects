@@ -12,6 +12,13 @@ Data Science projects:
 - [ML - Loan Default Risk Prediction](Loan_default_risk.ipynb)
 - [Content recommendation for OTT platforms](Content_recommendation.ipynb)
 
+
+#### What is special from me:
+- Structured code and folders
+- Common functions to reuse - [common_functions.py](common_functions.py)
+- LLMs - Made the LLM calls faster and cheaper for the profitability of the companies
+
+
 #### Upcoming
 Next:
 - LLM - Frequent feedback for similar products (helpful to newly create a product)
@@ -21,9 +28,3 @@ Next:
 - More in NLP
 - Election result prediction project
 - MLOps emulation
-
-
-What is special from me:
-- Structured code and folders
-- Common functions to reuse - [common_functions.py](common_functions.py)
-- LLMs - Made the LLM calls faster and cheaper for the profitability of the companies
