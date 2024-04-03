@@ -4,6 +4,7 @@
 LLM projects:
 - [LLMs - Chat with a Wikipedia page](LLM_Chat_with_Wikipedia_page.ipynb)
 - [LLMs - Feedback summarizer](LLM_Feedback_summarizer.ipynb)
+- [LLMs - Chat with an image](LLM_Image_chat.ipynb)
 
 Data Science projects:
 - [NLP - Offensive Text Classification](NLP_Offensive_Tweets_Classification.ipynb)
