@@ -6,14 +6,20 @@ from urllib.parse import urlparse
 
 
 def ensure_installed(required_packages):
+	missing_packages = []
 	for package in required_packages:
+		if isinstance(package, dict):
+			import_key = list(package.keys())[0]
+			package = package[import_key]
 		try:
 			__import__(package)
 		except ImportError:
-			subprocess.check_call([sys.executable, '-m', 'pip', 'install', package])
+			missing_packages.append(import_key or package)
+	if missing_packages:
+		subprocess.check_call([sys.executable, '-m', 'pip', 'install'] + missing_packages)
 
 
-required_packages = ['pandas', 'numpy', 'wget', 'zipfile', 'scikit-learn']
+required_packages = ['pandas', 'numpy', 'wget', 'zipfile', {'scikit-learn': 'sklearn'}]
 ensure_installed(required_packages)
 
 import zipfile
@@ -233,4 +239,21 @@ def hyperparam_tuning(model, X_train, y_train, param_grid=None):
 
 	# Return the best estimator
 	return grid_search.best_estimator_
+
+
+is_notebook = 'ipykernel' in sys.modules
+
+def host_chainlit(filename, HOSTING_MODE=True):
+	if not is_notebook:
+		# Allow only in notebook mode
+		# If running directly as python file, no need to create a new python file
+		return
+	if not HOSTING_MODE:
+		return
+	output_file = f"__pycache__/{filename}"
+	os.system(f'jupyter nbconvert {filename} --to script --output {output_file}')
+	output_file += '.py'
+	os.system(f'chainlit run {output_file}')
+
+
 
