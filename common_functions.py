@@ -248,13 +248,14 @@ def hyperparam_tuning(model, X_train, y_train, param_grid=None):
 
 
 def host_chainlit(filename, HOSTING_MODE=True):
+	if not HOSTING_MODE:
+		print('Hosting mode is set to False')
+		return
 	if not is_notebook():
 		# Allow only in notebook mode
 		# If running directly as python file, no need to create a new python file
 		return
-	if not HOSTING_MODE:
-		print('Hosting mode is set to False')
-		return
+	
 	output_file = f"__pycache__/{filename}"
 	os.system(f'jupyter nbconvert {filename} --to script --output {output_file}')
 	output_file += '.py'
