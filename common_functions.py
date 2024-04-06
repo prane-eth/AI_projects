@@ -1,9 +1,5 @@
-import os
 import subprocess
 import sys
-import shutil
-from urllib.parse import urlparse
-
 
 def ensure_installed(required_packages):
 	missing_packages = []
@@ -19,11 +15,17 @@ def ensure_installed(required_packages):
 		subprocess.check_call([sys.executable, '-m', 'pip', 'install'] + missing_packages)
 
 
-required_packages = ['pandas', 'numpy', 'wget', 'zipfile', {'scikit-learn': 'sklearn'}]
+required_packages = ['requests', 'environments_utils', 'pandas', 'numpy', 'wget', 'zipfile', {'scikit-learn': 'sklearn'}]
 ensure_installed(required_packages)
 
+import os
+import shutil
+from urllib.parse import urlparse
+
+import requests
 import zipfile
 import wget
+from environments_utils import is_notebook
 
 import pandas as pd
 import numpy as np
@@ -241,10 +243,8 @@ def hyperparam_tuning(model, X_train, y_train, param_grid=None):
 	return grid_search.best_estimator_
 
 
-is_notebook = 'ipykernel' in sys.modules
-
 def host_chainlit(filename, HOSTING_MODE=True):
-	if not is_notebook:
+	if not is_notebook():
 		# Allow only in notebook mode
 		# If running directly as python file, no need to create a new python file
 		return
@@ -253,7 +253,63 @@ def host_chainlit(filename, HOSTING_MODE=True):
 	output_file = f"__pycache__/{filename}"
 	os.system(f'jupyter nbconvert {filename} --to script --output {output_file}')
 	output_file += '.py'
-	os.system(f'chainlit run {output_file}')
+	# os.system(f'chainlit run {output_file}')
+	try:
+		subprocess.run(['chainlit', 'run', output_file], check=True)
+	except KeyboardInterrupt:
+		print("Interrupted by user")
 
 
+def ensure_llama_running():
+	try:
+		requests.get('http://localhost:11434/')
+	except:
+		print('LLAMA is not running. Please start LLAMA first.')
+		raise Exception('LLAMA is not running. Please start LLAMA first.')
 
+
+def get_notebook_name(vscode_path, default_filename):
+
+	if vscode_path:
+		value = os.path.basename(vscode_path)
+		if value:
+			return value
+
+	ensure_installed(['ipyparams', 'ipynbname', { 'ipynb_path': 'ipynb-path' }])
+	try:
+		import ipyparams
+
+		value = ipyparams.notebook_name
+		if value:
+			return ipyparams.notebook_name
+	except:
+		pass
+
+	try:
+		import ipynbname
+
+		value = ipynbname.name()
+		if value:
+			return value
+	except:
+		pass
+
+	try:
+		import ipynb_path
+
+		value = ipynb_path.get()
+		if value:
+			return os.path.basename(value)
+	except:
+		pass
+
+	try:
+		import ipynb_path
+
+		value = ipynb_path.get(__name__)
+		if value:
+			return os.path.basename(value)
+	except:
+		pass
+
+	return default_filename

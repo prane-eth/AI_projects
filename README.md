@@ -21,6 +21,8 @@ Data Science projects:
 
 #### Upcoming
 Next:
+- Attempt to use RAG in Wikipedia chat
+- Feedback summarizer: option to chat with feedback
 - LLM - Frequent feedback for similar products (helpful to newly create a product)
 	- https://nijianmo.github.io/amazon/index.html
 	- https://cseweb.ucsd.edu/~jmcauley/datasets.html#amazon_reviews
