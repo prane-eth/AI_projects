@@ -29,4 +29,22 @@ Next:
 - More in GenAI & LLMs
 - More in NLP
 - Election result prediction project
+	<!-- - fake data is generated without using personal data of users
+	- use party A, B, ... instead of actual political party names
+	- not specific to any state or a country -->
 - MLOps emulation
+- More projects that don't exist and are useful
+
+
+<!-- on hold:
+
+Shopping data analysis:
+	- Make data realistic using Faker or other packages or searching online
+	- Fix issue - no products are sold more than 0 or 1 times
+	- Also displaying recommendations to the user.
+
+	- Also custom ads that ad-providers create on my platform, predicting which ad is best suited using NLP,
+		displaying both Google ads and custom ads on the platform.
+		- Example: Ads by Peanut butter companies for users buying bread.
+		- Use Orders data
+	- Add test cases. If they don't pass, it should throw errors. -->
