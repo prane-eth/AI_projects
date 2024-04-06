@@ -4,13 +4,16 @@ import sys
 def ensure_installed(required_packages):
 	missing_packages = []
 	for package in required_packages:
+		import_key = None
 		if isinstance(package, dict):
 			import_key = list(package.keys())[0]
 			package = package[import_key]
 		try:
 			__import__(package)
-		except ImportError:
+		except ModuleNotFoundError:
 			missing_packages.append(import_key or package)
+		except Exception as e:
+			print(f'Error importing {package}: {e}')
 	if missing_packages:
 		subprocess.check_call([sys.executable, '-m', 'pip', 'install'] + missing_packages)
 
@@ -19,6 +22,7 @@ required_packages = ['requests', 'environments_utils', 'pandas', 'numpy', 'wget'
 ensure_installed(required_packages)
 
 import os
+import re
 import shutil
 from urllib.parse import urlparse
 
@@ -249,6 +253,7 @@ def host_chainlit(filename, HOSTING_MODE=True):
 		# If running directly as python file, no need to create a new python file
 		return
 	if not HOSTING_MODE:
+		print('Hosting mode is set to False')
 		return
 	output_file = f"__pycache__/{filename}"
 	os.system(f'jupyter nbconvert {filename} --to script --output {output_file}')
@@ -269,7 +274,7 @@ def ensure_llama_running():
 
 
 def get_notebook_name(vscode_path, default_filename):
-
+	
 	if vscode_path:
 		value = os.path.basename(vscode_path)
 		if value:
@@ -313,3 +318,6 @@ def get_notebook_name(vscode_path, default_filename):
 		pass
 
 	return default_filename
+
+def remove_comments(text):
+	return re.sub(r'#.*', '', text)
