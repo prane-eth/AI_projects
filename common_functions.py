@@ -256,11 +256,14 @@ def host_chainlit(filename, HOSTING_MODE=True):
 		# If running directly as python file, no need to create a new python file
 		return
 	
-	output_file = f"__pycache__/{filename}"
+	output_file = os.path.join(current_dir, '__pycache__', filename)
+	# delete file if exists
+	if os.path.exists(output_file):
+		os.remove(output_file)
 	os.system(f'jupyter nbconvert {filename} --to script --output {output_file}')
 	output_file += '.py'
-	# os.system(f'chainlit run {output_file}')
 	try:
+		# os.system(f'chainlit run {output_file}')
 		subprocess.run(['chainlit', 'run', output_file], check=True)
 	except KeyboardInterrupt:
 		print("Interrupted by user")
@@ -320,5 +323,12 @@ def get_notebook_name(vscode_path, default_filename):
 
 	return default_filename
 
-def remove_comments(text):
-	return re.sub(r'#.*', '', text)
+def clean_prompt(prompt):
+	prompt = re.sub(r'#.*', '', prompt)  # remove comments
+	prompt = re.sub(r'\n+', '\n', prompt)  # remove extra newlines where there are more than one
+	prompt = '\n'.join([line.strip() for line in prompt.split('\n')])  # strip each line
+	prompt = prompt.strip()
+
+	return prompt
+
+
