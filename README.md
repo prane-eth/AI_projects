@@ -1,8 +1,9 @@
 # Data Science Projects
 
 ### Completed:
-LLM projects:
+LLM LangChain projects:
 - [LLMs - Chat with a Wikipedia page](LLM_Chat_with_Wikipedia_page.ipynb)
+	- Used RAG, and ChainLit (to host web page)
 - [LLMs - Feedback summarizer](LLM_Feedback_summarizer.ipynb)
 - [LLMs - Chat with an image](LLM_Image_chat.ipynb)
 

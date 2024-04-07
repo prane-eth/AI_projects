@@ -11,7 +11,7 @@ def ensure_installed(required_packages):
 		try:
 			__import__(package)
 		except ModuleNotFoundError:
-			missing_packages.append(import_key or package)
+			missing_packages.append(import_key or package.replace('_', '-'))
 		except Exception as e:
 			print(f'Error importing {package}: {e}')
 	if missing_packages:
@@ -284,7 +284,7 @@ def get_notebook_name(vscode_path, default_filename):
 		if value:
 			return value
 
-	ensure_installed(['ipyparams', 'ipynbname', { 'ipynb_path': 'ipynb-path' }])
+	ensure_installed(['ipyparams', 'ipynbname', 'ipynb_path'])
 	try:
 		import ipyparams
 
