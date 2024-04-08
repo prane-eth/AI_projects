@@ -29,20 +29,19 @@ st.title('Chat with an image')
 
 st.header('Upload an image')
 
-# file = st.file_uploader('Upload an image', type=['jpg', 'jpeg', 'png'])
+st.write('[No image? Download here](https://raw.githubusercontent.com/mohammadimtiazz/standard-test-images-for-Image-Processing/master/standard_test_images/HappyFish.jpg)')
 
-# if not file:
-# 	st.stop()
+file = st.file_uploader('Upload an image', type=['jpg', 'jpeg', 'png'])
 
-# st.image(file, use_column_width=True)
+if not file:
+	st.stop()
 
-# user_question = st.text_input('Ask a question about the image:')
+st.image(file, use_column_width=True)
 
-# if not len(user_question):
-# 	st.stop()
+user_question = st.text_input('Ask a question about the image:')
 
-
-st.stop()
+if not len(user_question):
+	st.stop()
 
 
 # # %% [markdown]

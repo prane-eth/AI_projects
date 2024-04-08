@@ -330,12 +330,34 @@ def get_notebook_name(vscode_path, default_filename):
 
 	return default_filename
 
-def clean_prompt(prompt):
+def clean_prompt(prompt, llm=None):
+	# remove comments and clean up the prompt to reduce tokens
 	prompt = re.sub(r'#.*', '', prompt)  # remove comments
+
+	if llm:
+		# Print number of tokens in the prompt
+		print('Number of initial tokens:', llm.get_num_tokens(prompt))
+
 	prompt = re.sub(r'\n+', '\n', prompt)  # remove extra newlines where there are more than one
 	prompt = '\n'.join([line.strip() for line in prompt.split('\n')])  # strip each line
 	prompt = prompt.strip()
+	# remove punctuations at the start and end of the prompt
+	punctuations = ',.!?'
+	while prompt[0] in punctuations:
+		prompt = prompt[1:]
+	while prompt[-1] in punctuations:
+		prompt = prompt[:-1]
+	prompt = prompt.replace('\'s', 's')  # replace 's with s to save token usage for '
+	for article in ['a', 'an', 'the']:  # remove 'a ', 'an ', 'the '
+		prompt = prompt.replace(article + ' ', '')
+		prompt = prompt.replace(article.capitalize() + ' ', '')
+
+	if llm:
+		print('Number of tokens after cleanup:', llm.get_num_tokens(prompt))
 
 	return prompt
 
 
+def display_md(text):
+	from IPython.display import display, Markdown
+	display(Markdown(text))
