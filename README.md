@@ -6,6 +6,7 @@ LLM LangChain projects:
 	- Used RAG, and ChainLit (to host web page)
 - [LLMs - Feedback summarizer](LLM_Feedback_summarizer.ipynb)
 - [LLMs - Chat with an image](LLM_Image_chat.ipynb)
+Note: Before you run these, please install [Ollama](https://ollama.com/download) and pull the model used
 
 Data Science projects:
 - [NLP - Offensive Text Classification](NLP_Offensive_Tweets_Classification.ipynb)
