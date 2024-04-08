@@ -1,0 +1,13 @@
+langchain
+langchain_core
+langchain_text_splitters
+langchain_community
+streamlit
+chainlit
+llama_index
+requests
+environments_utils
+wget
+python-dotenv
+chromadb
+transformers

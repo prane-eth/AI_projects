@@ -18,24 +18,23 @@ def ensure_installed(required_packages):
 		subprocess.check_call([sys.executable, '-m', 'pip', 'install'] + missing_packages)
 
 
-required_packages = ['requests', 'environments_utils', 'wget', 'zipfile', 'numpy', {"python-dotenv": "load_dotenv"} ]
-ensure_installed(required_packages)
+# requirements file is already used
+# required_packages = ['requests', 'environments_utils', 'wget', 'zipfile', 'numpy', {"python-dotenv": "load_dotenv"} ]
+# ensure_installed(required_packages)
 
 import os
 import re
 import shutil
 from urllib.parse import urlparse
 
-import requests
 import zipfile
 import wget
 from environments_utils import is_notebook
 
-import numpy as np
+
 
 RANDOM_STATE = 42
 
-np.random.seed(RANDOM_STATE)
 
 current_dir = os.path.dirname(os.path.realpath(__file__))
 
@@ -103,7 +102,6 @@ ratings = pd.read_csv(ratings_file)  # Load the file
 '''
 
 def load_data_from_url(dataset_url, filename=None, return_path=False):
-	ensure_installed(['pandas'])
 	import pandas as pd
 	if not filename:
 		parsed_url = urlparse(dataset_url)
@@ -117,10 +115,8 @@ def load_data_from_url(dataset_url, filename=None, return_path=False):
 		return filepath
 	
 	if filename.endswith('.csv'):
-		ensure_installed(['pandas'])
 		df = pd.read_csv(filepath)
 	elif filename.endswith('.tsv'):
-		ensure_installed(['pandas'])
 		df = pd.read_csv(filepath, sep='\t')
 	else:
 		# raise ValueError(f'Unsupported file format: {filename}')
@@ -146,7 +142,10 @@ def save_plot(filename, plt, savingEnabled=True):
 
 
 def evaluate_model(model, X_train, y_train, X_test, y_test, X, y):
-	ensure_installed([{'scikit-learn': 'sklearn'}])
+	# Import only when used, as this is not used bv LLM projects
+	import numpy as np
+	np.random.seed(RANDOM_STATE)
+
 	from sklearn.metrics import confusion_matrix, f1_score, roc_auc_score, average_precision_score
 	from sklearn.model_selection import cross_val_score
 
@@ -200,7 +199,6 @@ def evaluate_model(model, X_train, y_train, X_test, y_test, X, y):
 
 
 def get_model_scores(models_to_try, X_train, y_train, X_test, y_test, X, y):
-	ensure_installed(['pandas'])
 	import pandas as pd
 	# Dictionary to store scores of the tested models
 	model_scores = {}
@@ -278,6 +276,7 @@ def host_chainlit(filename, HOSTING_MODE=True):
 
 
 def ensure_llama_running():
+	import requests
 	try:
 		requests.get('http://localhost:11434/')
 	except:
