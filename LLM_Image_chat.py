@@ -6,86 +6,102 @@
 
 # %%
 
-from common_functions import ensure_llama_running, load_data_from_url
+from common_functions import ensure_llama_running, load_data_from_url, clean_prompt, convert_list_to_base64
 
 import os
 from dotenv import load_dotenv
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_community.llms import Ollama
-from llama_index.readers.file import ImageReader
-
-import streamlit as st
 
 ensure_llama_running()
 load_dotenv()
 llm_model = os.getenv('IMAGE_LLM_MODEL')
 
+
+HOSTING_MODE = True
+
 # %% [markdown]
 # #### Streamlit workflow
 
 # %%
-st.title('Chat with an image')
+image_paths = None
+default_user_question = "What is in this image?"
+default_link = 'https://raw.githubusercontent.com/mohammadimtiazz/standard-test-images-for-Image-Processing/master/standard_test_images/fruits.png'
 
-st.header('Upload an image')
+if HOSTING_MODE:
+	import streamlit as st
+	st.set_page_config(
+		page_title="Chat with an image",
+		page_icon="🐍",
+		# layout="centered",
+		# initial_sidebar_state="expanded",
+	)
+	st.title('Chat with an image')
+	st.header('Upload an image')
+	st.write(f'[No image? Download one here]({default_link})')
 
-st.write('[No image? Download here](https://raw.githubusercontent.com/mohammadimtiazz/standard-test-images-for-Image-Processing/master/standard_test_images/HappyFish.jpg)')
+	image_files = st.file_uploader('Upload an image', type=['jpg', 'jpeg', 'png'], accept_multiple_files=True)
+	if not image_files:
+		st.stop()
 
-file = st.file_uploader('Upload an image', type=['jpg', 'jpeg', 'png'])
+	st.image(image_files)
+	user_question = st.text_input('Ask a question about the image:', value=default_user_question)
+	if not len(user_question):
+		st.stop()
 
-if not file:
-	st.stop()
-
-st.image(file, use_column_width=True)
-
-user_question = st.text_input('Ask a question about the image:')
-
-if not len(user_question):
-	st.stop()
+	image_paths = []
+	for image_file in image_files:
+		image_path = os.path.join('__pycache__', image_file.file_id + image_file.name)
+		with open(image_path, 'wb') as file:
+			file.write(image_file.getbuffer())
+		image_paths.append(image_path)
 
 
-# # %% [markdown]
-# # #### Data collection
+# %% [markdown]
+# #### Data collection
 
-# # %%
-# image_path = load_data_from_url(
-#     "https://raw.githubusercontent.com/mohammadimtiazz/standard-test-images-for-Image-Processing/master/standard_test_images/HappyFish.jpg",
-#     return_path = True,
-# )
-# reader = ImageReader()
-# image = reader.load_data(image_path)
+# %%
+if not HOSTING_MODE:
+	image_paths = [load_data_from_url(
+		default_link,
+		filename='test.jpg',
+		return_path = True,
+	)]
+	user_question = default_user_question
 
-# image
+image_b64s = convert_list_to_base64(image_paths)
 
-# # %% [markdown]
-# # #### Creating the model
 
-# # %%
-# llm = Ollama(model=llm_model)
-# llm
+# %% [markdown]
+# #### Creating the model
 
-# # %% [markdown]
-# # Define the prompt
+# %%
+llm = Ollama(model=llm_model)
 
-# # %%
-# # prompt can also be saved to a file and used as a template
-# prompt = """
-# Image is attached below. Please answer the question user asks.
-# """
+# %% [markdown]
+# Define the prompt
 
-# prompt = prompt.strip().replace("\n", " ")
+# %%
+prompt = """
+Image is attached by the user. Please answer the question user asks.
+"""
+prompt = clean_prompt(prompt)
 
-# # %%
-# promptTemplate = ChatPromptTemplate.from_messages([
-# 	("system", prompt),
-# 	("user", "{image}"),
-# 	("user", "{question}"),
-# ])
-# chain = promptTemplate | llm | StrOutputParser()  # Parse output as string
-# # Different operations are chained together to form a 'pipeline'.
-# # The output of one operation is passed as input to the next.
+# %%
+promptTemplate = ChatPromptTemplate.from_messages([
+	("system", prompt),
+	("user", "{question}"),
+])
+llm_with_image_context = llm.bind(images=image_b64s)
+chain = promptTemplate | llm_with_image_context | StrOutputParser()
+result = chain.invoke({ "question": user_question })
 
-# result = chain.invoke({ "question": "What is in the image?.", "image": image })
+if not result:
+	result = "Sorry, no response"
 
-# display(Markdown(f"**Response:**\n\n{result}"))
+if HOSTING_MODE:
+	st.write(result)
+else:
+	print(result)
 

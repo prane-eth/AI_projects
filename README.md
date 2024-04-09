@@ -8,7 +8,11 @@ LLM LangChain projects:
 	- Used LangChain, selenium, and Gradio (for hosting)
 - [LLMs - Chat with an image](LLM_Image_chat.ipynb)
 	- Used LangChain, LlamaIndex (for images), and StreamLit (for web page)
-Note: Before you run these, please install [Ollama](https://ollama.com/download) and pull the model used
+- [LLMs - Prompt shortener](LLM_Prompt_shortener.ipynb)
+	- Used LangChain and gradio
+Note: Before you run these, please install [Ollama](https://ollama.com/download) and pull the model used.
+Make sure to copy .env.example to .env and fill in the model name.
+
 
 Data Science projects:
 - [NLP - Offensive Text Classification](NLP_Offensive_Tweets_Classification.ipynb)
