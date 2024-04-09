@@ -102,7 +102,6 @@ ratings = pd.read_csv(ratings_file)  # Load the file
 '''
 
 def load_data_from_url(dataset_url, filename=None, return_path=False):
-	import pandas as pd
 	if not filename:
 		parsed_url = urlparse(dataset_url)
 		filename = parsed_url.path.split('/')[-1]
@@ -114,20 +113,26 @@ def load_data_from_url(dataset_url, filename=None, return_path=False):
 	if return_path:
 		return filepath
 	
+	if filename.endswith('.csv') or filename.endswith('.tsv'):
+		# imports should be only if used, without CPU wastage
+		import pandas as pd
+
 	if filename.endswith('.csv'):
 		df = pd.read_csv(filepath)
+		return df
 	elif filename.endswith('.tsv'):
 		df = pd.read_csv(filepath, sep='\t')
-	else:
-		# raise ValueError(f'Unsupported file format: {filename}')
-		try:
-			with open(filepath, 'r') as file:
-				text = file.read()
-			return text
-		except Exception as e:
-			print(f'Error reading {filename}: {e}')
-			raise ValueError(f'Error reading {filename}: {e}')
-	return df
+		return df
+
+	# if other formats
+	# raise ValueError(f'Unsupported file format: {filename}')
+	try:
+		with open(filepath, 'r') as file:
+			text = file.read()
+		return text
+	except Exception as e:
+		print(f'Error reading {filename}: {e}')
+		raise ValueError(f'Error reading {filename}: {e}')
 
 
 image_save_path = os.path.join(current_dir, 'images')
@@ -142,7 +147,7 @@ def save_plot(filename, plt, savingEnabled=True):
 
 
 def evaluate_model(model, X_train, y_train, X_test, y_test, X, y):
-	# Import only when used, as this is not used bv LLM projects
+	# imports should be only if used, without CPU wastage
 	import numpy as np
 	np.random.seed(RANDOM_STATE)
 
@@ -217,6 +222,7 @@ def get_model_scores(models_to_try, X_train, y_train, X_test, y_test, X, y):
 
 
 def hyperparam_tuning(model, X_train, y_train, param_grid=None):
+	# imports should be only if used, without CPU wastage
 	from sklearn.model_selection import GridSearchCV
 	from sklearn.linear_model import LogisticRegression
 	from sklearn.ensemble import GradientBoostingClassifier
@@ -330,13 +336,14 @@ def get_notebook_name(vscode_path, default_filename):
 
 	return default_filename
 
+
 def clean_prompt(prompt, llm=None):
 	# remove comments and clean up the prompt to reduce tokens
 	prompt = re.sub(r'#.*', '', prompt)  # remove comments
 
 	if llm:
 		# Print number of tokens in the prompt
-		print('Number of initial tokens:', llm.get_num_tokens(prompt))
+		print('Number of tokens before cleanup:', llm.get_num_tokens(prompt))
 
 	prompt = re.sub(r'\n+', '\n', prompt)  # remove extra newlines where there are more than one
 	prompt = '\n'.join([line.strip() for line in prompt.split('\n')])  # strip each line
@@ -348,7 +355,7 @@ def clean_prompt(prompt, llm=None):
 	while prompt[-1] in punctuations:
 		prompt = prompt[:-1]
 	prompt = prompt.replace('\'s', 's')  # replace 's with s to save token usage for '
-	for article in ['a', 'an', 'the']:  # remove 'a ', 'an ', 'the '
+	for article in ['a', 'an', 'the', 'please']:  # remove 'a ', 'an ', 'the '
 		prompt = prompt.replace(article + ' ', '')
 		prompt = prompt.replace(article.capitalize() + ' ', '')
 
@@ -361,3 +368,57 @@ def clean_prompt(prompt, llm=None):
 def display_md(text):
 	from IPython.display import display, Markdown
 	display(Markdown(text))
+
+
+def shorten_prompt(input_prompt):
+	# imports should be only if used, without CPU wastage
+	from dotenv import load_dotenv
+	from langchain_core.prompts import ChatPromptTemplate
+	from langchain_core.output_parsers import StrOutputParser
+	from langchain_community.llms import Ollama
+
+	ensure_llama_running()
+	load_dotenv()
+	llm_model = os.getenv('LLM_MODEL')
+	llm = Ollama(model=llm_model)
+	print('Initial number of tokens:', llm.get_num_tokens(input_prompt))
+
+	shortener_prompt = '''A prompt is attached. Shorten it.
+		Dont include 'According to', 'As an AI model', etc.
+		Your output must be shorter than the input.
+	'''
+
+	promptTemplate = ChatPromptTemplate.from_messages([
+		('system', shortener_prompt),
+		('user', 'Here is the prompt: \n `{input_prompt}`')
+	])
+	chain = promptTemplate | llm | StrOutputParser()
+	result = chain.invoke({ 'input_prompt': input_prompt })
+	print(f'Shorten prompt result: \n {result}')
+
+	short_prompt = None
+	if len(result) < len(input_prompt):
+		short_prompt = result
+		print(f'Shorter prompt: {short_prompt}')
+	else:
+		short_prompt = input_prompt
+
+	return clean_prompt(short_prompt, llm)
+
+
+import base64
+from io import BytesIO
+
+from PIL import Image
+
+
+def convert_to_base64(file_path):
+	pil_image = Image.open(file_path)
+	buffered = BytesIO()
+	pil_image.save(buffered, format="JPEG")  # You can change the format if needed
+	img_str = base64.b64encode(buffered.getvalue()).decode("utf-8")
+	return img_str
+
+def convert_list_to_base64(file_paths):
+	return [convert_to_base64(file_path) for file_path in file_paths]
+
