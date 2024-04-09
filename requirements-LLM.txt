@@ -11,3 +11,4 @@ wget
 python-dotenv
 chromadb
 transformers
+selenium
