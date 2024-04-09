@@ -2,8 +2,6 @@ langchain
 langchain_core
 langchain_text_splitters
 langchain_community
-llama_index
-ollama
 streamlit
 chainlit
 requests
