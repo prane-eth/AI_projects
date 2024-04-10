@@ -1,5 +1,6 @@
 # %% [markdown]
 # #### Project: Chat with an image
+# Simply upload an image and ask your question
 
 # %% [markdown]
 # #### Imports

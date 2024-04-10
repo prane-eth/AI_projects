@@ -259,7 +259,7 @@ def hyperparam_tuning(model, X_train, y_train, param_grid=None):
 	return grid_search.best_estimator_
 
 
-def host_chainlit(filename, HOSTING_MODE=True):
+def host_chainlit(notebook_file, HOSTING_MODE=True):
 	if not HOSTING_MODE:
 		print('Hosting mode is set to False')
 		return
@@ -267,16 +267,22 @@ def host_chainlit(filename, HOSTING_MODE=True):
 		# Allow only in notebook mode
 		# If running directly as python file, no need to create a new python file
 		return
-	
-	output_file = os.path.join(current_dir, '__pycache__', filename)
-	# delete file if exists
-	if os.path.exists(output_file):
-		os.remove(output_file)
-	os.system(f'jupyter nbconvert {filename} --to script --output {output_file}')
-	output_file += '.py'
+
+	cache_dir = os.path.join(current_dir, '__pycache__')
+	# copy .env and common_functions from current_dir to cache_dir
+	shutil.copy(os.path.join(current_dir, '.env'), cache_dir)
+	shutil.copy(os.path.join(current_dir, 'common_functions.py'), cache_dir)
+
+	script_file = os.path.join(cache_dir, notebook_file)
+	os.system(f'jupyter nbconvert {notebook_file} --to script --output {script_file}')
+	script_file += '.py'
 	try:
+		# delete file if exists
+		if os.path.exists(script_file):
+			os.remove(script_file)
+		
 		# os.system(f'chainlit run {output_file}')
-		subprocess.run(['chainlit', 'run', output_file], check=True)
+		subprocess.run(['chainlit', 'run', script_file], check=True)
 	except KeyboardInterrupt:
 		print("Interrupted by user")
 
