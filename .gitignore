@@ -4,10 +4,11 @@ datasets/
 images/
 catboost_info/
 output/
-.vscode/
 .chainlit/
 .chroma_db/
 chainlit.md
+PythonImportHelper*.json
+TODO
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

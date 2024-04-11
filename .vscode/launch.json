@@ -1,0 +1,13 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Python Debugger: streamlit",
+			"type": "python",
+			"request": "launch",
+			"pythonPath": "/home/praneeth/Desktop/AI_projects/.venv/bin/python3",
+			"module": "streamlit",
+			"args": ["run", "LLM_Image_chat.py"]
+		}
+	]
+}

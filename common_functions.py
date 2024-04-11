@@ -387,7 +387,8 @@ def shorten_prompt(input_prompt):
 	load_dotenv()
 	llm_model = os.getenv('LLM_MODEL')
 	llm = Ollama(model=llm_model)
-	print('Initial number of tokens:', llm.get_num_tokens(input_prompt))
+	input_token_count = llm.get_num_tokens(input_prompt)
+	print('Initial number of tokens:', input_token_count)
 
 	shortener_prompt = '''A prompt is attached. Shorten it.
 		Dont include 'According to', 'As an AI model', etc.
@@ -409,7 +410,11 @@ def shorten_prompt(input_prompt):
 	else:
 		short_prompt = input_prompt
 
-	return clean_prompt(short_prompt, llm)
+	cleaned_prompt = clean_prompt(short_prompt, llm)
+	output_token_count = llm.get_num_tokens(cleaned_prompt)
+	percent_saved = (input_token_count - output_token_count) / input_token_count * 100
+	percent_saved = round(percent_saved, 2)
+	return cleaned_prompt, input_token_count, output_token_count, percent_saved
 
 
 import base64

@@ -42,7 +42,7 @@ Next:
 	<!-- - fake data is generated without using personal data of users
 	- use party A, B, ... instead of actual political party names
 	- not specific to any state or a country -->
-- MLOps emulation
+- MLOps, LLMOps emulation
 - More projects that don't exist and are useful
 
 

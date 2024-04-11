@@ -1,0 +1,11 @@
+{
+	"files.exclude": {
+		"__pycache__": true,
+		".chainlit": true,
+		".files": true,
+		".venv": true,
+		"catboost_info": true,
+		"flagged": true,
+		".vscode/PythonImportHelper*.json": true
+	}
+}
