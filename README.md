@@ -16,6 +16,13 @@ Make sure to copy .env.example to .env and fill in the model name.
 
 ---
 
+#### What is special from me:
+- Structured code and folders
+- Common functions to reuse - [common_functions.py](common_functions.py)
+- LLMs - Made the LLM calls faster and cheaper for the profitability of the companies
+
+---
+
 Data Science projects:
 - [NLP - Offensive Text Classification](NLP_Offensive_Tweets_Classification.ipynb)
 - [Deep Learning - House price prediction](DL_House_price_prediction.ipynb)
@@ -23,27 +30,19 @@ Data Science projects:
 - [Content recommendation for OTT platforms](Content_recommendation.ipynb)
 
 
-#### What is special from me:
-- Structured code and folders
-- Common functions to reuse - [common_functions.py](common_functions.py)
-- LLMs - Made the LLM calls faster and cheaper for the profitability of the companies
-
-
-#### Upcoming
+<!-- #### Upcoming
 Next:
-- Attempt to use RAG in Wikipedia chat
-- Feedback summarizer: option to chat with feedback
 - LLM - Frequent feedback for similar products (helpful to newly create a product)
 	- https://nijianmo.github.io/amazon/index.html
 	- https://cseweb.ucsd.edu/~jmcauley/datasets.html#amazon_reviews
 - More in GenAI & LLMs
 - More in NLP
 - Election result prediction project
-	<!-- - fake data is generated without using personal data of users
+	- fake data is generated without using personal data of users
 	- use party A, B, ... instead of actual political party names
-	- not specific to any state or a country -->
+	- not specific to any state or a country
 - MLOps, LLMOps emulation
-- More projects that don't exist and are useful
+- More projects that don't exist and are useful -->
 
 
 <!-- on hold:
