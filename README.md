@@ -16,18 +16,18 @@ Make sure to copy .env.example to .env and fill in the model name.
 
 ---
 
+Data Science projects:
+- [NLP - Offensive Tweets Classification](projects/NLP_Offensive_Tweets_Classification.ipynb)
+- [ML - Loan Default Risk Prediction](projects/ML_Loan_default_risk.ipynb)
+<!-- - [Deep Learning - House price prediction](projects/DL_House_price_prediction.ipynb) -->
+<!-- - [Content recommendation for OTT platforms](projects/Content_recommendation.ipynb) -->
+
+---
+
 #### What is special from me:
 - Structured code and folders
 - Common functions to reuse - [common_functions.py](projects/common_functions.py)
 - LLMs - Made the LLM calls faster and cheaper for the profitability of the companies
-
----
-
-Data Science projects:
-- [NLP - Offensive Text Classification](projects/NLP_Offensive_Tweets_Classification.ipynb)
-- [ML - Loan Default Risk Prediction](projects/ML_Loan_default_risk.ipynb)
-<!-- - [Deep Learning - House price prediction](projects/DL_House_price_prediction.ipynb) -->
-<!-- - [Content recommendation for OTT platforms](projects/Content_recommendation.ipynb) -->
 
 
 <!-- #### Upcoming
@@ -57,3 +57,5 @@ Shopping data analysis:
 		- Example: Ads by Peanut butter companies for users buying bread.
 		- Use Orders data
 	- Add test cases. If they don't pass, it should throw errors. -->
+
+
