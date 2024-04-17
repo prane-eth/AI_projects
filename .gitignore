@@ -9,6 +9,8 @@ output/
 chainlit.md
 PythonImportHelper*.json
 TODO
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
