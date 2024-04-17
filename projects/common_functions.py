@@ -87,23 +87,6 @@ def download_and_extract_dataset_zip(dataset_zip_url, required_files):
 	os.remove(dataset_zip_filepath)
 
 
-'''
-Usage Example:
-
-from common_functions import download_and_extract_dataset_zip, datasets_dir
-
-dataset_foldername = 'ml-latest-small'
-zip_file_path = os.path.join(datasets_dir, dataset_foldername + '.zip')
-extracted_folder_path = zip_file_path.replace('.zip', '')
-ratings_file = os.path.join(extracted_folder_path, 'ratings.csv')
-
-required_files = [ratings_file, ]  # add more files to the list if any
-dataset_zip_url = f'https://files.grouplens.org/datasets/movielens/{dataset_foldername}.zip'
-
-download_and_extract_dataset_zip(dataset_zip_url, required_files)
-
-ratings = pd.read_csv(ratings_file)  # Load the file
-'''
 
 def load_data_from_url(dataset_url, filename=None, return_path=False):
 	if not filename:
@@ -151,12 +134,12 @@ def save_plot(filename, plt, savingEnabled=True):
 
 
 def evaluate_model(model, X_train, y_train, X_test, y_test, X, y):
-	# imports should be only if used, without CPU wastage
+	# imports should be only if used, without CPU wastage, only when relevant project is run
 	import numpy as np
 	np.random.seed(RANDOM_STATE)
 
-	from sklearn.metrics import confusion_matrix, f1_score, roc_auc_score, average_precision_score
-	from sklearn.model_selection import cross_val_score
+	from sklearn.metrics import confusion_matrix, f1_score  # , roc_auc_score, average_precision_score
+	# from sklearn.model_selection import cross_val_score
 
 	# Evaluates a given model on training and testing data
 	try:
@@ -171,36 +154,36 @@ def evaluate_model(model, X_train, y_train, X_test, y_test, X, y):
 		if overfitting < 0:  # Overfitting is positive or zero
 			overfitting = 0
 
-		# Cross-validation scores
-		try: # Some models need y in string type
-			cv_scores = cross_val_score(model, X.values, y.astype('str'), cv=5, scoring='accuracy')
-		except ValueError:  # Some models don't accept string type and raise ValueError above
-			cv_scores = cross_val_score(model, X.values, y, cv=5, scoring='accuracy')
-		cv_accuracy = np.mean(cv_scores)
+		# # Cross-validation scores
+		# try: # Some models need y in string type
+		# 	cv_scores = cross_val_score(model, X.values, y.astype('str'), cv=5, scoring='accuracy')
+		# except ValueError:  # Some models don't accept string type and raise ValueError above
+		# 	cv_scores = cross_val_score(model, X.values, y, cv=5, scoring='accuracy')
+		# cv_accuracy = np.mean(cv_scores)
 
 		# Accuracy from confusion matrix
 		conf_matrix = confusion_matrix(y_test, y_test_pred)
 		conf_matrix_accuracy = conf_matrix.diagonal().sum() / conf_matrix.sum()
 		f1 = f1_score(y_test, y_test_pred, average='binary')
 
-		# ROC AUC Score
-		if hasattr(model, 'predict_proba'):
-			y_test_proba = model.predict_proba(X_test)[:, 1]
-			roc_auc = roc_auc_score(y_test, y_test_proba)
-			average_precision = average_precision_score(y_test, y_test_proba)
-		else:
-			roc_auc = None
-			average_precision = None
+		# # ROC AUC Score
+		# if hasattr(model, 'predict_proba'):
+		# 	y_test_proba = model.predict_proba(X_test)[:, 1]
+		# 	roc_auc = roc_auc_score(y_test, y_test_proba)
+		# 	average_precision = average_precision_score(y_test, y_test_proba)
+		# else:
+		# 	roc_auc = None
+		# 	average_precision = None
 
 		return {
 			'Test Accuracy': test_accuracy,
 			'Train Accuracy': train_accuracy,
 			'Overfitting value': overfitting,
-			'CV Accuracy': cv_accuracy,
+			# 'CV Accuracy': cv_accuracy,
 			'Confusion Matrix Accuracy': conf_matrix_accuracy,
 			'F1-Score': f1,
-			'ROC AUC Score': roc_auc,
-			'Average Precision Score': average_precision,
+			# 'ROC AUC Score': roc_auc,
+			# 'Average Precision Score': average_precision,
 		}
 	except Exception as e:
 		print(f'Error with model {model}: {e}')
@@ -219,7 +202,7 @@ def get_model_scores(models_to_try, X_train, y_train, X_test, y_test, X, y):
 
 	# Converting scores to DataFrame
 	scores_df = pd.DataFrame.from_dict(model_scores, orient='index')
-	scores_df.sort_values(by=['Test Accuracy', 'CV Accuracy', 'Train Accuracy'], ascending=False, inplace=True)
+	scores_df.sort_values(by=['Test Accuracy', 'Train Accuracy'], ascending=False, inplace=True)  # , 'CV Accuracy'
 	scores_df.reset_index(inplace=True)
 	scores_df.rename(columns={'index': 'Model'}, inplace=True)
 	return scores_df
