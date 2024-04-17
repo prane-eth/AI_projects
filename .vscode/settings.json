@@ -6,6 +6,14 @@
 		".venv": true,
 		"catboost_info": true,
 		"flagged": true,
-		".vscode/PythonImportHelper*.json": true
-	}
+		".vscode/PythonImportHelper*.json": true,
+		".chroma_db": true,
+	},
+	"python.defaultInterpreterPath": "./.venv/bin/python3",
+	"python.autoComplete.extraPaths": [
+		"./.venv/lib/python3.10/site-packages"
+	],
+	"python.analysis.extraPaths": [
+		"./.venv/lib/python3.10/site-packages"
+	]
 }

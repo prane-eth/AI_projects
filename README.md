@@ -6,7 +6,7 @@ LLM LangChain projects:
 	- Used LangChain, RAG, and ChainLit (to host web page)
 - [LLMs - Feedback summarizer](LLM_Feedback_summarizer.ipynb)
 	- Used LangChain, Selenium, and Gradio (for hosting)
-- [LLMs - Chat with an image](LLM_Image_chat.ipynb)
+- [LLMs - Chat with an image](LLM_Image_chat.py)
 	- Used LangChain, and StreamLit (for hosting)
 - [LLMs - Prompt shortener](LLM_Prompt_shortener.ipynb)
 	- Used LangChain and Gradio (for hosting)
@@ -26,7 +26,7 @@ Make sure to copy .env.example to .env and fill in the model name.
 Data Science projects:
 - [NLP - Offensive Text Classification](NLP_Offensive_Tweets_Classification.ipynb)
 - [Deep Learning - House price prediction](DL_House_price_prediction.ipynb)
-- [ML - Loan Default Risk Prediction](Loan_default_risk.ipynb)
+- [ML - Loan Default Risk Prediction](ML_Loan_default_risk.ipynb)
 - [Content recommendation for OTT platforms](Content_recommendation.ipynb)
 
 

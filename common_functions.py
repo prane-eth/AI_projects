@@ -31,6 +31,10 @@ import zipfile
 import wget
 from environments_utils import is_notebook
 
+import base64
+from io import BytesIO
+from PIL import Image
+
 
 
 RANDOM_STATE = 42
@@ -417,19 +421,33 @@ def shorten_prompt(input_prompt):
 	return cleaned_prompt, input_token_count, output_token_count, percent_saved
 
 
-import base64
-from io import BytesIO
+supported_image_formats = ['jpg', 'jpeg', 'png']
 
-from PIL import Image
+def convert_to_base64(file):
+	# get format and check whether it is supported
+	if file.name:
+		format = file.name.split('.')[-1]
+		if format not in supported_image_formats:
+			raise ValueError(f'Unsupported image format: {format}')
 
-
-def convert_to_base64(file_path):
-	pil_image = Image.open(file_path)
 	buffered = BytesIO()
-	pil_image.save(buffered, format="JPEG")  # You can change the format if needed
-	img_str = base64.b64encode(buffered.getvalue()).decode("utf-8")
+	# if file is a string
+	if isinstance(file, str):
+		pil_image = Image.open(file, formats=supported_image_formats)
+		pil_image = pil_image.convert('RGB')
+		pil_image.save(buffered, format="JPEG")
+	elif isinstance(file, Image.Image):
+		file.save(buffered, format="JPEG")
+	elif isinstance(file, bytes):
+		buffered.write(file)
+	elif hasattr(file, 'getbuffer'):
+		buffered.write(file.getbuffer())
+	else:
+		raise ValueError('Unsupported image type')
+	image_buffer = buffered.getvalue()
+	img_str = base64.b64encode(image_buffer).decode("utf-8")
 	return img_str
 
-def convert_list_to_base64(file_paths):
-	return [convert_to_base64(file_path) for file_path in file_paths]
+def convert_list_to_base64(files):
+	return [convert_to_base64(file) for file in files]
 

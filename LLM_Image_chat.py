@@ -7,7 +7,8 @@
 
 # %%
 
-from common_functions import ensure_llama_running, load_data_from_url, clean_prompt, convert_list_to_base64
+from common_functions import ensure_llama_running, load_data_from_url, \
+			clean_prompt, convert_list_to_base64, supported_image_formats
 
 import os
 from dotenv import load_dotenv
@@ -26,8 +27,8 @@ HOSTING_MODE = True
 # #### Streamlit workflow
 
 # %%
-image_paths = None
-default_user_question = "What is in this image?"
+image_files = None
+default_user_question = "What are in this image?"
 default_link = 'https://raw.githubusercontent.com/mohammadimtiazz/standard-test-images-for-Image-Processing/master/standard_test_images/fruits.png'
 
 if HOSTING_MODE:
@@ -42,7 +43,7 @@ if HOSTING_MODE:
 	st.header('Upload an image')
 	st.write(f'[No image? Download one here]({default_link})')
 
-	image_files = st.file_uploader('Upload an image', type=['jpg', 'jpeg', 'png'], accept_multiple_files=True)
+	image_files = st.file_uploader('Upload an image', type=supported_image_formats, accept_multiple_files=True)
 	if not image_files:
 		st.stop()
 
@@ -51,27 +52,20 @@ if HOSTING_MODE:
 	if not len(user_question):
 		st.stop()
 
-	image_paths = []
-	for image_file in image_files:
-		image_path = os.path.join('__pycache__', image_file.file_id + image_file.name)
-		with open(image_path, 'wb') as file:
-			file.write(image_file.getbuffer())
-		image_paths.append(image_path)
-
 
 # %% [markdown]
 # #### Data collection
 
 # %%
 if not HOSTING_MODE:
-	image_paths = [load_data_from_url(
+	image_files = [load_data_from_url(
 		default_link,
 		filename='test.jpg',
 		return_path = True,
 	)]
 	user_question = default_user_question
 
-image_b64s = convert_list_to_base64(image_paths)
+image_b64s = convert_list_to_base64(image_files)
 
 
 # %% [markdown]
@@ -94,8 +88,7 @@ promptTemplate = ChatPromptTemplate.from_messages([
 	("system", prompt),
 	("user", "{question}"),
 ])
-llm_with_image_context = llm.bind(images=image_b64s)
-chain = promptTemplate | llm_with_image_context | StrOutputParser()
+chain = promptTemplate | llm.bind(images=image_b64s) | StrOutputParser()
 result = chain.invoke({ "question": user_question })
 
 if not result:
