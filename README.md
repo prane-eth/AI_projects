@@ -2,13 +2,13 @@
 
 ### Completed:
 LLM LangChain projects:
-- [LLMs - Chat with a Wikipedia page](LLM_Chat_with_Wikipedia_page.ipynb)
+- [LLMs - Chat with a Wikipedia page](projects/LLM_Chat_with_Wikipedia_page.ipynb)
 	- Used LangChain, RAG, and ChainLit (to host web page)
-- [LLMs - Feedback summarizer](LLM_Feedback_summarizer.ipynb)
+- [LLMs - Feedback summarizer](projects/LLM_Feedback_summarizer.ipynb)
 	- Used LangChain, Selenium, and Gradio (for hosting)
-- [LLMs - Chat with an image](LLM_Image_chat.py)
+- [LLMs - Chat with an image](projects/LLM_Image_chat.py)
 	- Used LangChain, and StreamLit (for hosting)
-- [LLMs - Prompt shortener](LLM_Prompt_shortener.ipynb)
+- [LLMs - Prompt shortener](projects/LLM_Prompt_shortener.ipynb)
 	- Used LangChain and Gradio (for hosting)
 
 *Note*: Before you run these, please install [Ollama](https://ollama.com/download) and pull the model used.
@@ -18,16 +18,16 @@ Make sure to copy .env.example to .env and fill in the model name.
 
 #### What is special from me:
 - Structured code and folders
-- Common functions to reuse - [common_functions.py](common_functions.py)
+- Common functions to reuse - [common_functions.py](projects/common_functions.py)
 - LLMs - Made the LLM calls faster and cheaper for the profitability of the companies
 
 ---
 
 Data Science projects:
-- [NLP - Offensive Text Classification](NLP_Offensive_Tweets_Classification.ipynb)
-- [Deep Learning - House price prediction](DL_House_price_prediction.ipynb)
-- [ML - Loan Default Risk Prediction](ML_Loan_default_risk.ipynb)
-- [Content recommendation for OTT platforms](Content_recommendation.ipynb)
+- [NLP - Offensive Text Classification](projects/NLP_Offensive_Tweets_Classification.ipynb)
+- [ML - Loan Default Risk Prediction](projects/ML_Loan_default_risk.ipynb)
+<!-- - [Deep Learning - House price prediction](projects/DL_House_price_prediction.ipynb) -->
+<!-- - [Content recommendation for OTT platforms](projects/Content_recommendation.ipynb) -->
 
 
 <!-- #### Upcoming
