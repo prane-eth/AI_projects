@@ -1,7 +1,7 @@
 langchain
 langchain_core
 langchain_text_splitters
-langchain_community
+langchain-community
 streamlit
 chainlit
 requests

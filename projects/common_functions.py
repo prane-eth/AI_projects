@@ -261,12 +261,12 @@ def host_chainlit(notebook_file, HOSTING_MODE=True):
 	shutil.copy(os.path.join(current_dir, 'common_functions.py'), cache_dir)
 
 	script_file = os.path.join(cache_dir, notebook_file)
+	# delete file before creating a new one
+	if os.path.exists(script_file):
+		os.remove(script_file)
 	os.system(f'jupyter nbconvert {notebook_file} --to script --output {script_file}')
 	script_file += '.py'
 	try:
-		# delete file if exists
-		if os.path.exists(script_file):
-			os.remove(script_file)
 		
 		# os.system(f'chainlit run {output_file}')
 		subprocess.run(['chainlit', 'run', script_file], check=True)
