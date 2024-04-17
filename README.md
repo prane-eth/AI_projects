@@ -30,9 +30,11 @@ Data Science projects:
 - Structured code and folders
 - Common functions to reuse - [common_functions.py](/projects/common_functions.py)
 - LLMs - Made the LLM calls faster and cheaper for the profitability of the companies
+- Applying more concepts that are useful in the real-world projects
 
 
-<!-- #### Upcoming
+<!--
+#### Upcoming
 Next:
 - LLM - Frequent feedback for similar products (helpful to newly create a product)
 	- https://nijianmo.github.io/amazon/index.html
@@ -44,10 +46,10 @@ Next:
 	- use party A, B, ... instead of actual political party names
 	- not specific to any state or a country
 - MLOps, LLMOps emulation
-- More projects that don't exist and are useful -->
+- More projects that don't exist and are useful
 
 
-<!-- on hold:
+on hold:
 
 Shopping data analysis:
 	- Make data realistic using Faker or other packages or searching online
@@ -58,6 +60,7 @@ Shopping data analysis:
 		displaying both Google ads and custom ads on the platform.
 		- Example: Ads by Peanut butter companies for users buying bread.
 		- Use Orders data
-	- Add test cases. If they don't pass, it should throw errors. -->
+	- Add test cases. If they don't pass, it should throw errors.
+-->
 
 
