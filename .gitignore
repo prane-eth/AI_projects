@@ -11,6 +11,8 @@ PythonImportHelper*.json
 TODO
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
+.files/
+flagged/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
