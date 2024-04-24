@@ -20,6 +20,7 @@ ensure_llama_running()
 load_dotenv()
 llm_model = os.getenv('IMAGE_LLM_MODEL')
 
+# Demo: ../Demo/LLM_Image_chat.mp4 and ../Demo/LLM_Image_chat2.mp4
 
 HOSTING_MODE = True
 
