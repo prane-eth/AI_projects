@@ -377,14 +377,16 @@ def shorten_prompt(input_prompt):
 	input_token_count = llm.get_num_tokens(input_prompt)
 	print('Initial number of tokens:', input_token_count)
 
-	shortener_prompt = '''A prompt is attached. Shorten it.
-		Dont include 'According to', 'As an AI model', etc.
-		Your output must be shorter than the input.
+	shortener_prompt = '''
+		You are a Prompt-Shortener assistant that summarizes the given prompt exactly as per instructions.
+		A prompt is attached. Shorten it. Dont include 'According to', 'As an AI model', 'Here it is', 'Here is the shortened prompt', etc.
+		Your response must be shorter than the given prompt.
+		The original context question from the user should be preserved in the prompt. 
 	'''
 
 	promptTemplate = ChatPromptTemplate.from_messages([
-		('system', shortener_prompt),
-		('user', 'Here is the prompt: \n `{input_prompt}`')
+		# ('system', shortener_prompt),
+		('user', shortener_prompt + 'Here is the prompt: ```\n{input_prompt}\n```')
 	])
 	chain = promptTemplate | llm | StrOutputParser()
 	result = chain.invoke({ 'input_prompt': input_prompt })
