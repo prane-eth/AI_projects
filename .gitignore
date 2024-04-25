@@ -13,6 +13,7 @@ TODO
 */.ipynb_checkpoints/*
 .files/
 flagged/
+unused/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
