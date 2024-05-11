@@ -208,7 +208,7 @@ def get_model_scores(models_to_try, X_train, y_train, X_test, y_test, X, y):
 	return scores_df
 
 
-def hyperparam_tuning(model, X_train, y_train, param_grid=None):
+def hyperparam_tuning(model, X_train, y_train, param_grid=None, silent=False):
 	# imports should be only if used, without CPU wastage
 	from sklearn.model_selection import GridSearchCV
 	from sklearn.linear_model import LogisticRegression
@@ -235,12 +235,14 @@ def hyperparam_tuning(model, X_train, y_train, param_grid=None):
 	param_grid['random_state'] = [RANDOM_STATE]
 	
 	# Define and fit the grid search
-	grid_search = GridSearchCV(estimator=model, param_grid=param_grid, cv=3, scoring='accuracy', verbose=1)
+	scoring_metric = 'accuracy'
+	grid_search = GridSearchCV(estimator=model, param_grid=param_grid, cv=3, scoring=scoring_metric, verbose=1)
 	grid_search.fit(X_train, y_train)
 
 	# Best parameters and best score
-	print('Best Parameters:', grid_search.best_params_)
-	print('Best Score:', grid_search.best_score_)
+	if not silent:
+		print('Best Parameters:', grid_search.best_params_)
+		print('Best', scoring_metric, 'Score:', grid_search.best_score_)
 
 	# Return the best estimator
 	return grid_search.best_estimator_
