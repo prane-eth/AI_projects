@@ -14,6 +14,8 @@ TODO
 .files/
 flagged/
 unused/
+_unsloth_temporary_saved_buffers/
+outputs/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

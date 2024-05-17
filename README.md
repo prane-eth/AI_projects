@@ -10,6 +10,9 @@ LLM LangChain projects:
 	- Used LangChain, and StreamLit (for hosting)
 - [LLMs - Prompt shortener](/projects/LLM_Prompt_shortener.ipynb)
 	- Used LangChain and Gradio (for hosting)
+- [LLMs - Fine-tuning, RLAIF, and RLHF](/projects/LLM_Fine-tuning.ipynb)
+	- Used Fine-tuning, RLHF, and RLAIF (Reinforcement Learning with AI Feedback)
+
 
 ### For demo, please open [Demo](/Demo/Demo.md)
 
