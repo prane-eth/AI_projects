@@ -18,5 +18,5 @@ LLM LangChain projects:
 	![LLMs - Prompt shortener](./LLM_Prompt_shortener.png)
 
 
-- [LLMs - Finetuning, RLAIF, and RLHF](/projects/LLM_Fine-tuning.ipynb)
+- [LLMs - Finetuning, RLAIF, and RLHF](/projects/LLM_Fine-tuning_RLHF.ipynb)
 	![LLMs - Finetuning, RLAIF, and RLHF](./LLM_Fine-tuning.png)

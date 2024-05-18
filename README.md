@@ -10,8 +10,8 @@ LLM LangChain projects (Generative AI):
 	- Used LangChain, and StreamLit (for hosting)
 - [LLMs - Prompt shortener](/projects/LLM_Prompt_shortener.ipynb)
 	- Used LangChain and Gradio (for hosting)
-- [LLMs - Fine-tuning, RLHF, and RLAIF](/projects/LLM_Fine-tuning.ipynb)
-	- Used Fine-tuning, RLHF, and RLAIF (Reinforcement Learning with AI Feedback)
+- [LLMs - Fine-tuning, RLHF, and RLAIF](/projects/LLM_Fine-tuning_RLHF.ipynb)
+	- Used Fine-tuning, RLHF, and RLAIF (Reinforcement Learning with AI Feedback), and Responsible AI
 
 
 ### For demo, please open the page: [Demo](/Demo/Demo.md)
