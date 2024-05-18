@@ -11,3 +11,7 @@ python-dotenv
 chromadb
 transformers
 selenium
+pyowm
+google-api-python-client
+langchainhub
+

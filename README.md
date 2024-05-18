@@ -1,7 +1,7 @@
 # AI Projects
 
 ### Completed:
-LLM LangChain projects:
+LLM LangChain projects (Generative AI):
 - [LLMs - Chat with a Wikipedia page](/projects/LLM_Chat_with_Wikipedia_page.ipynb)
 	- Used LangChain, RAG, and ChainLit (to host web page)
 - [LLMs - Feedback summarizer](/projects/LLM_Feedback_summarizer.ipynb)
@@ -10,13 +10,13 @@ LLM LangChain projects:
 	- Used LangChain, and StreamLit (for hosting)
 - [LLMs - Prompt shortener](/projects/LLM_Prompt_shortener.ipynb)
 	- Used LangChain and Gradio (for hosting)
-- [LLMs - Fine-tuning, RLAIF, and RLHF](/projects/LLM_Fine-tuning.ipynb)
+- [LLMs - Fine-tuning, RLHF, and RLAIF](/projects/LLM_Fine-tuning.ipynb)
 	- Used Fine-tuning, RLHF, and RLAIF (Reinforcement Learning with AI Feedback)
 
 
-### For demo, please open [Demo](/Demo/Demo.md)
+### For demo, please open the page: [Demo](/Demo/Demo.md)
 
-*Note*: Before you run these, please install [Ollama](https://ollama.com/download) and pull the model used.
+*Note*: Before you run these, please install [Ollama](https://ollama.com/download) and pull the model you prefer.
 Make sure to copy .env.example to .env and fill in the model name.
 
 ---
