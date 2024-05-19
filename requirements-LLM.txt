@@ -1,7 +1,8 @@
 langchain
-langchain_core
+langchain-core
 langchain_text_splitters
 langchain-community
+langchain-experimental
 streamlit
 chainlit
 requests
@@ -14,4 +15,6 @@ selenium
 pyowm
 google-api-python-client
 langchainhub
-
+groq
+pandas
+datasets

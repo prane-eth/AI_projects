@@ -47,6 +47,10 @@ datasets_dir = os.path.join(current_dir, 'datasets')
 if not os.path.exists(datasets_dir):
 	os.makedirs(datasets_dir)
 
+cache_dir = os.path.join(current_dir, '__pycache__')
+if not os.path.exists(cache_dir):
+	os.makedirs(cache_dir)
+
 
 def download_and_extract_dataset_zip(dataset_zip_url, required_files):
 	# Check if the required files exist
@@ -257,7 +261,6 @@ def host_chainlit(notebook_file, HOSTING_MODE=True):
 		# If running directly as python file, no need to create a new python file
 		return
 
-	cache_dir = os.path.join(current_dir, '__pycache__')
 	# copy .env and common_functions from current_dir to cache_dir
 	shutil.copy(os.path.join(current_dir, '.env'), cache_dir)
 	shutil.copy(os.path.join(current_dir, 'common_functions.py'), cache_dir)
