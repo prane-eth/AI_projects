@@ -30,10 +30,16 @@ from urllib.parse import urlparse
 import zipfile
 import wget
 from environments_utils import is_notebook
+import pandas as pd
 
 import base64
-from io import BytesIO
+import io
 from PIL import Image
+
+from langchain_core.prompts import FewShotPromptTemplate, PromptTemplate
+from langchain_experimental.tabular_synthetic_data.base import SyntheticDataGenerator
+from langchain_experimental.tabular_synthetic_data.prompts import \
+			SYNTHETIC_FEW_SHOT_PREFIX, SYNTHETIC_FEW_SHOT_SUFFIX
 
 
 
@@ -420,7 +426,7 @@ def convert_to_base64(file):
 		if format not in supported_image_formats:
 			raise ValueError(f'Unsupported image format: {format}')
 
-	buffered = BytesIO()
+	buffered = io.BytesIO()
 	# if file is a string
 	if isinstance(file, str):
 		pil_image = Image.open(file, formats=supported_image_formats)
@@ -441,3 +447,37 @@ def convert_to_base64(file):
 def convert_list_to_base64(files):
 	return [convert_to_base64(file) for file in files]
 
+
+def generate_synthetic_data(llm, topic, rows=100, force=False, fields=None, examples=None):
+	'generates synthetic data using LLM'
+
+	data_save_path = os.path.join(datasets_dir, f'{topic}_synthetic_data.csv')
+	if not force and os.path.exists(data_save_path):
+		return pd.read_csv(data_save_path)
+
+	OPENAI_TEMPLATE = PromptTemplate(input_variables=['example'], template='{example}')
+	prompt_template = FewShotPromptTemplate(
+		prefix=SYNTHETIC_FEW_SHOT_PREFIX,
+		examples=examples,
+		suffix=SYNTHETIC_FEW_SHOT_SUFFIX,
+		input_variables=fields,
+		example_prompt=OPENAI_TEMPLATE,
+	)
+
+	generator = SyntheticDataGenerator(llm=llm, template=prompt_template)
+	extra_prompt = 'include columns in csv text in triple quotes - ```. ' \
+		f'fields: {", ".join(fields)}. row count: {rows}. ' \
+		f'Make sure it resembles a real {topic} dataset.'
+	data = generator.generate(subject=topic, runs=1, extra=extra_prompt)
+	response = data[0]
+	# get text in quotes ```
+	response = response[response.find('```')+3:response.rfind('```')]
+	response = response.strip()
+
+	try:
+		df = pd.read_csv(io.StringIO(response))
+		df.to_csv(data_save_path, index=False)
+		return df
+	except Exception as e:
+		print('No data generated')
+		print(e)
