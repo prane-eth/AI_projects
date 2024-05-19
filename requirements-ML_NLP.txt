@@ -1,6 +1,6 @@
-seaborn
-numpy
 pandas
+numpy
+seaborn
 matplotlib
 scikit-learn
 nltk

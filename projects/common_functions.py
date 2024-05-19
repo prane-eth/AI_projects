@@ -448,10 +448,11 @@ def convert_list_to_base64(files):
 	return [convert_to_base64(file) for file in files]
 
 
-def generate_synthetic_data(llm, topic, rows=100, force=False, fields=None, examples=None):
+def generate_synthetic_data(llm, topic, rows=100, force=False, fields=None, examples=None, data_save_path=None):
 	'generates synthetic data using LLM'
 
-	data_save_path = os.path.join(datasets_dir, f'{topic}_synthetic_data.csv')
+	if not data_save_path:
+		data_save_path = os.path.join(datasets_dir, f'{topic}_synthetic_data.csv')
 	if not force and os.path.exists(data_save_path):
 		return pd.read_csv(data_save_path)
 
@@ -476,8 +477,22 @@ def generate_synthetic_data(llm, topic, rows=100, force=False, fields=None, exam
 
 	try:
 		df = pd.read_csv(io.StringIO(response))
+		df.sort_values('date', inplace=True)
+		df.reset_index(drop=True, inplace=True)  # sort by date
 		df.to_csv(data_save_path, index=False)
 		return df
 	except Exception as e:
 		print('No data generated')
 		print(e)
+
+
+def extract_quotes(text):
+	# return the quoted answer which is quoted with ` or ```
+	# by extracting from the answer
+	if '```' in text:
+		text = text.split('```')[1]
+	elif '`' in text:
+		text = text.split('`')[1]
+	return text
+
+

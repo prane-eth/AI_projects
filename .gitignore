@@ -1,4 +1,5 @@
 # custom files
+unused/
 media/
 datasets/
 images/
@@ -13,9 +14,9 @@ TODO
 */.ipynb_checkpoints/*
 .files/
 flagged/
-unused/
 _unsloth_temporary_saved_buffers/
 outputs/
+.codebox/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
