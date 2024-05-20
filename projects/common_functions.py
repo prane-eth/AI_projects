@@ -285,7 +285,7 @@ def host_chainlit(notebook_file, HOSTING_MODE=True):
 		print("Interrupted by user")
 
 
-def ensure_llama_running():
+def ensure_ollama_running():
 	import requests
 	try:
 		requests.get('http://localhost:11434/')
@@ -381,7 +381,7 @@ def shorten_prompt(input_prompt):
 	from langchain_core.output_parsers import StrOutputParser
 	from langchain_community.llms import Ollama
 
-	ensure_llama_running()
+	ensure_ollama_running()
 	load_dotenv()
 	llm_model = os.getenv('LLM_MODEL')
 	llm = Ollama(model=llm_model)

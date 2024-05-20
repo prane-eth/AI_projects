@@ -7,7 +7,7 @@
 
 # %%
 
-from common_functions import ensure_llama_running, load_data_from_url, \
+from common_functions import ensure_ollama_running, load_data_from_url, \
 			clean_prompt, convert_list_to_base64, supported_image_formats
 
 import os
@@ -16,7 +16,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_community.llms import Ollama
 
-ensure_llama_running()
+ensure_ollama_running()
 load_dotenv()
 llm_model = os.getenv('IMAGE_LLM_MODEL')
 

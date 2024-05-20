@@ -3,6 +3,7 @@ langchain-core
 langchain_text_splitters
 langchain-community
 langchain-experimental
+langchain-groq
 streamlit
 chainlit
 requests

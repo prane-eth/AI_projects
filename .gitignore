@@ -17,6 +17,7 @@ flagged/
 _unsloth_temporary_saved_buffers/
 outputs/
 .codebox/
+ollama
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
