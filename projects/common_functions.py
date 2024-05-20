@@ -291,7 +291,8 @@ def ensure_ollama_running():
 
 
 def get_notebook_name(vscode_path, default_filename):
-	
+	'returns current .ipynb notebook name'
+
 	if vscode_path:
 		value = os.path.basename(vscode_path)
 		if value:
@@ -322,11 +323,6 @@ def get_notebook_name(vscode_path, default_filename):
 		value = ipynb_path.get()
 		if value:
 			return os.path.basename(value)
-	except:
-		pass
-
-	try:
-		import ipynb_path
 
 		value = ipynb_path.get(__name__)
 		if value:
