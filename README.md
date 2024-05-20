@@ -12,6 +12,8 @@ LLM LangChain projects (Generative AI):
 	- Used LangChain and Gradio (for hosting)
 - [LLMs - Fine-tuning, RLHF, and RLAIF](/projects/LLM_Fine-tuning_RLHF.ipynb)
 	- Used Fine-tuning, RLHF, RLAIF (Reinforcement Learning with AI Feedback), and Responsible AI
+- [LLMs - Agents](/projects/LLM_Agents.ipynb)
+	- Used LangChain Agents for various tasks like searching online, fetching weather, math operations, etc.
 - [LLMs - Chat with Data](/projects/LLM_Chat_with_Data.ipynb)
 	- Useful to chat with data to get useful insights to increase the profitability of the companies
 	- Generated synthetic data using LLMs
