@@ -448,7 +448,7 @@ def convert_list_to_base64(files):
 	return [convert_to_base64(file) for file in files]
 
 
-def generate_synthetic_data(llm, topic, rows=100, force=False, fields=None, examples=None, data_save_path=None):
+def generate_synthetic_data(llm, topic, rows, fields, examples, data_save_path=None, force=False):
 	'generates synthetic data using LLM'
 
 	if not data_save_path:
@@ -466,9 +466,10 @@ def generate_synthetic_data(llm, topic, rows=100, force=False, fields=None, exam
 	)
 
 	generator = SyntheticDataGenerator(llm=llm, template=prompt_template)
-	extra_prompt = 'include columns in csv text in triple quotes - ```. ' \
-		f'fields: {", ".join(fields)}. row count: {rows}. ' \
-		f'Make sure it resembles a real {topic} dataset.'
+	extra_prompt = 'include columns in csv text in triple quotes - ```. \n' \
+		f'fields: {", ".join(fields)}. \n' \
+		f'Make sure it resembles a real {topic} dataset. \n' \
+		f'row count expected: {rows}.'
 	data = generator.generate(subject=topic, runs=1, extra=extra_prompt)
 	response = data[0]
 	# get text in quotes ```
