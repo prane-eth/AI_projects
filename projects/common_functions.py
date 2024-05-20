@@ -3,24 +3,20 @@ import sys
 
 def ensure_installed(required_packages):
 	missing_packages = []
-	for package in required_packages:
-		import_key = None
-		if isinstance(package, dict):
-			import_key = list(package.keys())[0]
-			package = package[import_key]
+	for package_import_name in required_packages:
+		pip_name = None
+		if isinstance(package_import_name, dict):
+			pip_name = list(package_import_name.keys())[0]
+			package_import_name = package_import_name[pip_name]
 		try:
-			__import__(package)
+			__import__(package_import_name)
 		except ModuleNotFoundError:
-			missing_packages.append(import_key or package.replace('_', '-'))
+			missing_packages.append(pip_name or package_import_name.replace('_', '-'))
 		except Exception as e:
-			print(f'Error importing {package}: {e}')
+			print(f'Error importing {package_import_name}: {e}')
 	if missing_packages:
 		subprocess.check_call([sys.executable, '-m', 'pip', 'install'] + missing_packages)
 
-
-# requirements file is already used
-# required_packages = ['requests', 'environments_utils', 'wget', 'zipfile', 'numpy', {"python-dotenv": "load_dotenv"} ]
-# ensure_installed(required_packages)
 
 import os
 import re
@@ -471,7 +467,7 @@ def generate_synthetic_data(llm, topic, rows, fields, examples, data_save_path=N
 		f'Make sure it resembles a real {topic} dataset. \n' \
 		f'row count expected: {rows}.'
 	data = generator.generate(subject=topic, runs=1, extra=extra_prompt)
-	response = data[0]
+	response = data[0]  # read first message, as runs=1
 	# get text in quotes ```
 	response = response[response.find('```')+3:response.rfind('```')]
 	response = response.strip()
