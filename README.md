@@ -17,6 +17,8 @@ LLM LangChain projects (Generative AI):
 - [LLMs - Chat with Data](/projects/LLM_Chat_with_Data.ipynb)
 	- Useful to chat with data to get useful insights to increase the profitability of the companies
 	- Generated synthetic data using LLMs
+- [LLMs - Model Deployment](/projects/LLM_Model_Deployment.ipynb)
+	- Used LMDeploy and FastAPI to deploy the model by emulating OpenAI API
 
 
 ### For demo, please open the page: [Demo](/Demo/Demo.md)
