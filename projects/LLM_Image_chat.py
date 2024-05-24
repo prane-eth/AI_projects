@@ -14,7 +14,7 @@ import os
 from dotenv import load_dotenv
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-from langchain_community.llms import Ollama
+from langchain_community.llms.ollama import Ollama
 
 ensure_ollama_running()
 load_dotenv()

@@ -1,5 +1,6 @@
 # custom files
 unused/
+hidden/
 media/
 datasets/
 images/
@@ -9,7 +10,7 @@ output/
 .chroma_db/
 chainlit.md
 PythonImportHelper*.json
-TODO
+TODO*
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
 .files/
