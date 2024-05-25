@@ -291,11 +291,14 @@ def ensure_ollama_running():
 		print('LLAMA is not running. Please start LLAMA first.')
 		raise Exception('LLAMA is not running. Please start LLAMA first.')
 
-def get_ollama(model=None):
+def get_ollama(model=None, large=False):
 	from langchain_community.llms.ollama import Ollama
 	ensure_ollama_running()
 	if not model:
-		model = os.getenv('LLM_MODEL')
+		if large:
+			model = os.getenv('LLM_MODEL')
+		else:
+			model = os.getenv('SMALL_LLM_MODEL')
 	llm = Ollama(model=model)
 	return llm
 
