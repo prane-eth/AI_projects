@@ -7,16 +7,14 @@
 
 # %%
 
-from common_functions import ensure_ollama_running, load_data_from_url, \
+from common_functions import get_ollama, load_data_from_url, \
 			clean_prompt, convert_list_to_base64, supported_image_formats
 
 import os
 from dotenv import load_dotenv
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-from langchain_community.llms.ollama import Ollama
 
-ensure_ollama_running()
 load_dotenv()
 llm_model = os.getenv('IMAGE_LLM_MODEL')
 
@@ -73,7 +71,7 @@ image_b64s = convert_list_to_base64(image_files)
 # #### Creating the model
 
 # %%
-llm = Ollama(model=llm_model)
+llm = get_ollama(llm_model)
 
 # %% [markdown]
 # Define the prompt

@@ -31,6 +31,7 @@ import pandas as pd
 import base64
 import io
 from PIL import Image
+from dotenv import load_dotenv
 
 from langchain_core.prompts import FewShotPromptTemplate, PromptTemplate
 from langchain_experimental.tabular_synthetic_data.base import SyntheticDataGenerator
@@ -39,6 +40,7 @@ from langchain_experimental.tabular_synthetic_data.prompts import \
 
 
 
+load_dotenv()
 RANDOM_STATE = 42
 
 
@@ -289,6 +291,25 @@ def ensure_ollama_running():
 		print('LLAMA is not running. Please start LLAMA first.')
 		raise Exception('LLAMA is not running. Please start LLAMA first.')
 
+def get_ollama(model=None):
+	from langchain_community.llms.ollama import Ollama
+	ensure_ollama_running()
+	if not model:
+		model = os.getenv('LLM_MODEL')
+	llm = Ollama(model=model)
+	return llm
+
+def get_groq(model=None, large=True):
+	from langchain_groq import ChatGroq
+	if not model:
+		if large:
+			model = os.getenv('GROQ_LARGE_MODEL')
+		else:
+			model = os.getenv('GROQ_SMALL_MODEL')
+		
+	llm = ChatGroq(model_name=model, temperature=1.0)
+	return llm
+
 
 def get_notebook_name(vscode_path, default_filename):
 	'returns current .ipynb notebook name'
@@ -368,15 +389,10 @@ def display_md(text):
 
 def shorten_prompt(input_prompt):
 	# imports should be only if used, without CPU wastage
-	from dotenv import load_dotenv
 	from langchain_core.prompts import ChatPromptTemplate
 	from langchain_core.output_parsers import StrOutputParser
-	from langchain_community.llms.ollama import Ollama
 
-	ensure_ollama_running()
-	load_dotenv()
-	llm_model = os.getenv('LLM_MODEL')
-	llm = Ollama(model=llm_model)
+	llm = get_ollama()
 	input_token_count = llm.get_num_tokens(input_prompt)
 	print('Initial number of tokens:', input_token_count)
 
