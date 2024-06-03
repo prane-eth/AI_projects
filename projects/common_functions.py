@@ -44,16 +44,14 @@ load_dotenv()
 RANDOM_STATE = 42
 
 
-current_dir = os.path.dirname(os.path.realpath(__file__))
+current_dir = '.' # os.path.dirname(os.path.realpath(__file__))
 
 datasets_dir = os.path.join(current_dir, 'datasets')
 # Create the dataset folder if it doesn't exist
-if not os.path.exists(datasets_dir):
-	os.makedirs(datasets_dir)
+os.makedirs(datasets_dir, exist_ok=True)
 
 cache_dir = os.path.join(current_dir, '__pycache__')
-if not os.path.exists(cache_dir):
-	os.makedirs(cache_dir)
+os.makedirs(cache_dir, exist_ok=True)
 
 
 def download_and_extract_dataset_zip(dataset_zip_url, required_files):
@@ -256,10 +254,7 @@ def hyperparam_tuning(model, X_train, y_train, param_grid=None, silent=False):
 	return grid_search.best_estimator_
 
 
-def host_chainlit(notebook_file, HOSTING_MODE=True):
-	if not HOSTING_MODE:
-		print('Hosting mode is set to False')
-		return
+def host_chainlit(notebook_file):
 	if not is_notebook():
 		# Allow only in notebook mode
 		# If running directly as python file, no need to create a new python file
@@ -276,7 +271,6 @@ def host_chainlit(notebook_file, HOSTING_MODE=True):
 	os.system(f'jupyter nbconvert {notebook_file} --to script --output {script_file}')
 	script_file += '.py'
 	try:
-		
 		# os.system(f'chainlit run {output_file}')
 		subprocess.run(['chainlit', 'run', script_file], check=True)
 	except KeyboardInterrupt:
@@ -387,6 +381,8 @@ def clean_prompt(prompt, llm=None):
 
 def display_md(text):
 	from IPython.display import display, Markdown
+	# make text suitable for markdown display
+	text = text.replace('\n', '<br>')
 	display(Markdown(text))
 
 
