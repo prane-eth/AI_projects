@@ -382,8 +382,12 @@ def clean_prompt(prompt, llm=None):
 def display_md(text):
 	from IPython.display import display, Markdown
 	# make text suitable for markdown display
-	text = text.replace('\n', '<br>')
-	display(Markdown(text))
+	try:
+		text = text.replace('\n', '<br>')
+		display(Markdown(text))
+	except:
+		display(Markdown('_Error displaying text_'))
+		print(text)
 
 
 def shorten_prompt(input_prompt):
