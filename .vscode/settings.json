@@ -12,11 +12,12 @@
 		"**/outputs": true,
 		"**/_unsloth*": true,
 	},
-	"python.defaultInterpreterPath": "./.venv/bin/python3",
+	// ln -s ~/venv .venv
+	"python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python3",
 	"python.autoComplete.extraPaths": [
-		"./.venv/lib/python3.10/site-packages"
+		"${workspaceFolder}/.venv/lib/python3.10/site-packages"
 	],
 	"python.analysis.extraPaths": [
-		"./.venv/lib/python3.10/site-packages"
+		"${workspaceFolder}/.venv/lib/python3.10/site-packages"
 	]
 }

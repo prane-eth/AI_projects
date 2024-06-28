@@ -16,7 +16,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
 load_dotenv()
-llm_model = os.getenv('IMAGE_LLM_MODEL')
+llm_model = os.getenv('LLM_VISION_MODEL')
 
 # Demo: ../Demo/LLM_Image_chat.mp4 and ../Demo/LLM_Image_chat2.mp4
 
