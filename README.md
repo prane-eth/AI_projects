@@ -2,6 +2,8 @@
 
 ### Completed:
 LLM LangChain projects (Generative AI):
+- [LLMs - AutoPureData: Automated Filtering of Web Data for LLM Fine-tuning - (Research project)](https://github.com/Pro-GenAI/AutoPureData)
+	- Used Llama 3 to automate the process of filtering web data for LLM fine-tuning
 - [LLMs - Chat with a Wikipedia page](/projects/LLM_Chat_with_Wikipedia_page.ipynb)
 	- Used LangChain, RAG, and ChainLit (to host web page)
 - [LLMs - Feedback summarizer](/projects/LLM_Feedback_summarizer.ipynb)
