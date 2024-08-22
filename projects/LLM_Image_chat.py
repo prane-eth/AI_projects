@@ -1,3 +1,5 @@
+# $ streamlit run LLM_Image_chat.py 
+
 # %% [markdown]
 # #### Project: Chat with an image
 # Simply upload an image and ask your question

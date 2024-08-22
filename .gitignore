@@ -1,6 +1,5 @@
 # custom files
 unused/
-hidden/
 media/
 datasets/
 images/
@@ -19,6 +18,7 @@ _unsloth_temporary_saved_buffers/
 outputs/
 .codebox/
 ollama
+.vscode*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

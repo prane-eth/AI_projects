@@ -1,24 +1,7 @@
 import subprocess
 import sys
-
-def ensure_installed(required_packages):
-	missing_packages = []
-	for package_import_name in required_packages:
-		pip_name = None
-		if isinstance(package_import_name, dict):
-			pip_name = list(package_import_name.keys())[0]
-			package_import_name = package_import_name[pip_name]
-		try:
-			__import__(package_import_name)
-		except ModuleNotFoundError:
-			missing_packages.append(pip_name or package_import_name.replace('_', '-'))
-		except Exception as e:
-			print(f'Error importing {package_import_name}: {e}')
-	if missing_packages:
-		subprocess.check_call([sys.executable, '-m', 'pip', 'install'] + missing_packages)
-
-
 import os
+import time
 import re
 import shutil
 from urllib.parse import urlparse
@@ -27,6 +10,7 @@ import zipfile
 import wget
 from environments_utils import is_notebook
 import pandas as pd
+from groq import Groq
 
 import base64
 import io
@@ -40,15 +24,15 @@ from langchain_experimental.tabular_synthetic_data.prompts import \
 
 
 
-load_dotenv()
+load_dotenv(override=True)
 RANDOM_STATE = 42
 
 
 current_dir = '.' # os.path.dirname(os.path.realpath(__file__))
 
 datasets_dir = os.path.join(current_dir, 'datasets')
-# Create the dataset folder if it doesn't exist
-os.makedirs(datasets_dir, exist_ok=True)
+# # Create the dataset folder if it doesn't exist
+# os.makedirs(datasets_dir, exist_ok=True)
 
 cache_dir = os.path.join(current_dir, '__pycache__')
 os.makedirs(cache_dir, exist_ok=True)
@@ -308,6 +292,23 @@ def get_groq(model=None, large=True):
 	return llm
 
 
+def ensure_installed(required_packages):
+	missing_packages = []
+	for package_import_name in required_packages:
+		pip_name = None
+		if isinstance(package_import_name, dict):
+			pip_name = list(package_import_name.keys())[0]
+			package_import_name = package_import_name[pip_name]
+		try:
+			__import__(package_import_name)
+		except ModuleNotFoundError:
+			missing_packages.append(pip_name or package_import_name.replace('_', '-'))
+		except Exception as e:
+			print(f'Error importing {package_import_name}: {e}')
+	if missing_packages:
+		subprocess.check_call([sys.executable, '-m', 'pip', 'install'] + missing_packages)
+
+
 def get_notebook_name(vscode_path, default_filename):
 	'returns current .ipynb notebook name'
 
@@ -506,5 +507,68 @@ def extract_quotes(text):
 	elif '`' in text:
 		text = text.split('`')[1]
 	return text
+
+def extract_backtick_data(response):
+	# replace single backticks with triple backticks
+	if '```' not in response:
+		response = response.replace('`', '```')
+	response = response.replace('```\n```', '```')
+	# get the value from triple backticks
+	response = response.split('```')[1]
+	if response.startswith('csv'):  # remove 'csv' from start of backticks
+		response = response[3:].strip()
+	response = response.strip().strip('`').strip()
+	return response
+
+
+groq_client = Groq()
+groq_model = os.getenv('GROQ_SMALL_MODEL')
+groq_model_large = os.getenv('GROQ_LARGE_MODEL')
+
+def get_groq_response(messages, process_backticks=False, max_retries=4, large_model=False):
+	'''
+	Example:
+	.. code-block:: python
+
+		instruction_prompt = (
+			'Classify the following text based on predefined categories related to content safety. \n'
+		)
+		messages = [{'role': 'user', 'content': instruction_prompt}]
+		for _ in range(max_retries):
+			try:
+				response = get_bot_response(messages, process_backticks=True)
+	'''
+	global groq_model, groq_model_large
+	for _ in range(max_retries):
+		try:
+			chat_completion = groq_client.chat.completions.create(
+				messages=messages,
+				model=groq_model_large if large_model else groq_model,
+			)
+			response = chat_completion.choices[0].message.content
+			response = response.strip()
+			if not response:
+				raise Exception('Empty response from the bot')
+			if process_backticks:
+				response = extract_backtick_data(response)
+			return response
+		except Exception as e:
+			if '429' in str(e):  # Rate limit
+				# get text '23' from e='... Please try again in 23m3.714445312s. ...'
+				rate_limit_message = e.split('Please try again in')[1].split('m')[0].strip()
+				print(f'Rate Limit reached for {rate_limit_message} minutes. ', end='')
+				print('Waiting...')
+				time.sleep(int(rate_limit_message) * 60)
+				continue
+			print(f'Error: {e}. Retrying')
+	raise Exception('No response from the bot')
+
+
+def print_progress():
+	print('.', end='', flush=True)
+
+def print_error(err=None):
+	print('!', end='', flush=True)
+
 
 
