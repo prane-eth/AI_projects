@@ -1,9 +1,34 @@
 # AI Projects
 
 ### Completed:
-LLM & AI research projects: https://github.com/Pro-GenAI/
+LLM & AI Research projects:
+- _UpdAgent_: AI Agent Version Control Framework for Real-Time Updation of Tools - _Nov 2024_
+	- A framework that enables versioning for agents, which allows the updation of versions.
+	- Available at [doi.org/10.21275/SR241106070538](https://doi.org/10.21275/SR241106070538)
+- _AutoTrendyKeywords_: Real-Time AI-Driven Trend-Based SEO Using LLM - _Oct 2024_
+	- Trend-based SEO to make the content stay relevant to the users despite rapid changes in trends.
+	- Available at [github.com/Pro-GenAI/Auto-Trendy-Keywords](https://github.com/Pro-GenAI/Auto-Trendy-Keywords)
+- _LML-DAP_: Language Model Learning a Dataset for Data-Augmented Prediction - _Oct 2024_
+	- Instead of ML, the paper uses the process of an LLM learning a dataset for context-aware classification decisions based on relevant data like RAG.
+	- Available at [github.com/Pro-GenAI/LML-DAP](https://github.com/Pro-GenAI/LML-DAP)
+- _AutoPureData_: Automated Filtering of Undesirable Web Data to Update LLM Knowledge - _July 2024_
+	- Filters unwanted text using LLMs and uses Vector DB and Retrieval-Augmented Generation (RAG).
+	- Available at [github.com/Pro-GenAI/AutoPureData](https://github.com/Pro-GenAI/AutoPureData)
+- _AutoWatcher_: a Real-Time Context-Aware Security Alert System using LLMs - _May 2024_
+	- Uses multimodal LLMs to monitor camera footage and create alerts on detection of suspicious threats.
+	- Available at [doi.org/10.55041/IJSREM33034](https://doi.org/10.55041/IJSREM33034)
+- _The Power of Roles_: Investigating Impact of Three Message Types on LLM Responses - _Mar 2024_
+	- Investigates the impact of three message roles, “system,” “user,” and “assistant,” on responses.
+	- Available at [github.com/Pro-GenAI/Power-of-Roles](https://github.com/Pro-GenAI/Power-of-Roles)
+- _AutoPrecisePrompts_: Automated LLM-based Prompt Engineering for Data Processing - _Jan 2024_
+	- Automated Prompt Engineering and testing to ensure perfect prompts are crafted.
+	- Available at [github.com/Pro-GenAI/Auto-Precise-Prompts](https://github.com/Pro-GenAI/Auto-Precise-Prompts)
+- _EaseText_: Enhancing Comprehension of Complex Sentences using LLMs - _Dec 2022_
+	- Uses an LLM to simplify complex sentences that are often difficult to read, especially for non-native English speakers.
+	- Available at [doi.org/10.51219/JAIMLD/praneeth-vadlapati/349](https://doi.org/10.51219/JAIMLD/praneeth-vadlapati/349)
 
-LLM LangChain projects (Generative AI):
+
+### LLM LangChain projects (Generative AI):
 - [LLMs - Chat with a Wikipedia page](/projects/LLM_Chat_with_Wikipedia_page.ipynb)
 	- Used LangChain, RAG, and ChainLit (to host web page)
 - [LLMs - Feedback summarizer](/projects/LLM_Feedback_summarizer.ipynb)
@@ -23,9 +48,9 @@ LLM LangChain projects (Generative AI):
 	- Used LMDeploy and FastAPI to deploy the model by emulating OpenAI API
 
 
-### For demo, please open the page: [Demo](/Demo/Demo.md)
+<!-- ### For demo, please open the page: [Demo](/Demo/Demo.md) -->
 
-*Note*: Before you run these, please install [Ollama](https://ollama.com/download) and pull the model you prefer.
+<!-- *Note*: Before you run these, please install [Ollama](https://ollama.com/download) and pull the model you prefer. -->
 Make sure to copy .env.example to .env and fill in the model name.
 
 ---
