@@ -2,7 +2,7 @@
 
 - _UpdAgent_: AI Agent Version Control Framework for Real-Time Updation of Tools - _Nov 2024_
 	- A framework that enables versioning for agents, which allows the updation of versions.
-	- Available at [doi.org/10.21275/SR241106070538](https://doi.org/10.21275/SR241106070538)
+	- Available at [github.com/Pro-GenAI/UpdAgent](https://github.com/Pro-GenAI/UpdAgent)
 - _AutoTrendyKeywords_: Real-Time AI-Driven Trend-Based SEO Using LLM - _Oct 2024_
 	- Trend-based SEO to make the content stay relevant to the users despite rapid changes in trends.
 	- Available at [github.com/Pro-GenAI/Auto-Trendy-Keywords](https://github.com/Pro-GenAI/Auto-Trendy-Keywords)
