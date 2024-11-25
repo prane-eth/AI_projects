@@ -1,7 +1,5 @@
 # AI Projects
 
-### Completed:
-LLM & AI Research projects:
 - _UpdAgent_: AI Agent Version Control Framework for Real-Time Updation of Tools - _Nov 2024_
 	- A framework that enables versioning for agents, which allows the updation of versions.
 	- Available at [doi.org/10.21275/SR241106070538](https://doi.org/10.21275/SR241106070538)
@@ -28,7 +26,7 @@ LLM & AI Research projects:
 	- Available at [doi.org/10.51219/JAIMLD/praneeth-vadlapati/349](https://doi.org/10.51219/JAIMLD/praneeth-vadlapati/349)
 
 
-### LLM LangChain projects (Generative AI):
+### LLMs - LangChain projects:
 - [LLMs - Chat with a Wikipedia page](/projects/LLM_Chat_with_Wikipedia_page.ipynb)
 	- Used LangChain, RAG, and ChainLit (to host web page)
 - [LLMs - Feedback summarizer](/projects/LLM_Feedback_summarizer.ipynb)
@@ -37,8 +35,6 @@ LLM & AI Research projects:
 	- Used LangChain, and StreamLit (for hosting)
 - [LLMs - Prompt shortener](/projects/LLM_Prompt_shortener.ipynb)
 	- Used LangChain and Gradio (for hosting)
-<!-- - [LLMs - Fine-tuning, RLHF, and RLAIF](/projects/LLM_Fine-tuning_RLHF.ipynb)
-	- Used Fine-tuning, RLHF, RLAIF (Reinforcement Learning with AI Feedback), and Responsible AI -->
 - [LLMs - Agents](/projects/LLM_Agents.ipynb)
 	- Used LangChain Agents for various tasks like searching online, fetching weather, math operations, running python code, etc.
 - [LLMs - Chat with Data](/projects/LLM_Chat_with_Data.ipynb)
@@ -46,11 +42,9 @@ LLM & AI Research projects:
 	- Generated synthetic data using LLMs
 - [LLMs - Model Deployment](/projects/LLM_Model_Deployment.ipynb)
 	- Used LMDeploy and FastAPI to deploy the model by emulating OpenAI API
+<!-- - [LLMs - Fine-tuning, RLHF, and RLAIF](/projects/LLM_Fine-tuning_RLHF.ipynb)
+	- Used Fine-tuning, RLHF, RLAIF (Reinforcement Learning with AI Feedback), and Responsible AI -->
 
-
-<!-- ### For demo, please open the page: [Demo](/Demo/Demo.md) -->
-
-<!-- *Note*: Before you run these, please install [Ollama](https://ollama.com/download) and pull the model you prefer. -->
 Make sure to copy .env.example to .env and fill in the model name.
 
 ---
@@ -69,38 +63,9 @@ Data Science projects:
 - LLMs - Made the LLM calls faster and cheaper for the profitability of the companies
 - Applying more concepts that are useful in the real-world projects
 
-
 <!--
-
----
-
-#### Upcoming
 Next:
-- LLM - Frequent feedback for similar products (helpful to newly create a product)
-	- https://nijianmo.github.io/amazon/index.html
-	- https://cseweb.ucsd.edu/~jmcauley/datasets.html#amazon_reviews
-- More in GenAI & LLMs
-- More in NLP
-- Election result prediction project
-	- fake data is generated without using personal data of users
-	- use party A, B, ... instead of actual political party names
-	- not specific to any state or a country
 - MLOps, LLMOps emulation
-- More projects that don't exist and are useful
-
-
-on hold:
-
-Shopping data analysis:
-	- Make data realistic using Faker or other packages or searching online
-	- Fix issue - no products are sold more than 0 or 1 times
-	- Also displaying recommendations to the user.
-
-	- Also custom ads that ad-providers create on my platform, predicting which ad is best suited using NLP,
-		displaying both Google ads and custom ads on the platform.
-		- Example: Ads by Peanut butter companies for users buying bread.
-		- Use Orders data
-	- Add test cases. If they don't pass, it should throw errors.
 -->
 
 
