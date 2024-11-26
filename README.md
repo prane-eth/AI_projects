@@ -9,6 +9,8 @@
 - _LML-DAP_: Language Model Learning a Dataset for Data-Augmented Prediction - _Oct 2024_
 	- Instead of ML, the paper uses the process of an LLM learning a dataset for context-aware classification decisions based on relevant data like RAG.
 	- Available at [github.com/Pro-GenAI/LML-DAP](https://github.com/Pro-GenAI/LML-DAP)
+- _AGIent and Tool-Mart_: A Super-Agent Framework Enabled by Marketplace-Driven Tool Selection - _Sep 2024_
+	- Enables dynamic set of tools for agents using a database. Available at [https://github.com/Pro-GenAI/AGIent](github.com/Pro-GenAI/AGIent)
 - _AutoPureData_: Automated Filtering of Undesirable Web Data to Update LLM Knowledge - _July 2024_
 	- Filters unwanted text using LLMs and uses Vector DB and Retrieval-Augmented Generation (RAG).
 	- Available at [github.com/Pro-GenAI/AutoPureData](https://github.com/Pro-GenAI/AutoPureData)
