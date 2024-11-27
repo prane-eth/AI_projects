@@ -16,7 +16,7 @@
 	- Available at [github.com/Pro-GenAI/AutoPureData](https://github.com/Pro-GenAI/AutoPureData)
 - _AutoWatcher_: a Real-Time Context-Aware Security Alert System using LLMs - _May 2024_
 	- Uses multimodal LLMs to monitor camera footage and create alerts on detection of suspicious threats.
-	- Available at [doi.org/10.55041/IJSREM33034](https://doi.org/10.55041/IJSREM33034)
+	- Available at [github.com/Pro-GenAI/AutoWatcher](https://github.com/Pro-GenAI/AutoWatcher)
 - _The Power of Roles_: Investigating Impact of Three Message Types on LLM Responses - _Mar 2024_
 	- Investigates the impact of three message roles, “system,” “user,” and “assistant,” on responses.
 	- Available at [github.com/Pro-GenAI/Power-of-Roles](https://github.com/Pro-GenAI/Power-of-Roles)
