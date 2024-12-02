@@ -23,6 +23,9 @@
 - _AutoPrecisePrompts_: Automated LLM-based Prompt Engineering for Data Processing - _Jan 2024_
 	- Automated Prompt Engineering and testing to ensure perfect prompts are crafted.
 	- Available at [github.com/Pro-GenAI/Auto-Precise-Prompts](https://github.com/Pro-GenAI/Auto-Precise-Prompts)
+- _iSearch_: Enhanced Intelligent Search Based on a Query using LLMs - _Apr 2023_
+	- Automates the Prompt Engineering of hard prompts and the testing process to ensure perfect prompts are crafted.
+	- Available at https://ijcem.in/wp-content/uploads/ISEARCH-ENHANCED-INTELLIGENT-SEARCH-BASED-ON-A-QUERY-USING-LLMS.pdf
 - _EaseText_: Enhancing Comprehension of Complex Sentences using LLMs - _Dec 2022_
 	- Uses an LLM to simplify complex sentences that are often difficult to read, especially for non-native English speakers.
 	- Available at [doi.org/10.51219/JAIMLD/praneeth-vadlapati/349](https://doi.org/10.51219/JAIMLD/praneeth-vadlapati/349)
