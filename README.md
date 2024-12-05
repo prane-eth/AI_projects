@@ -26,10 +26,14 @@
 - _iSearch_: Enhanced Intelligent Search Based on a Query using LLMs - _Apr 2023_
 	- Automates the Prompt Engineering of hard prompts and the testing process to ensure perfect prompts are crafted.
 	- Available at https://ijcem.in/wp-content/uploads/ISEARCH-ENHANCED-INTELLIGENT-SEARCH-BASED-ON-A-QUERY-USING-LLMS.pdf
+- Multilingual Prompting in LLMs: Investigating the Accuracy and Performance - _Feb 2023_
+	- Since the training data of LLM is mostly in English, the experiments finds the accuracy using prompts in different languages.
+	- Available at https://ijsrem.com/download/multilingual-prompting-in-llms-investigating-the-accuracy-and-performance/.
 - _EaseText_: Enhancing Comprehension of Complex Sentences using LLMs - _Dec 2022_
 	- Uses an LLM to simplify complex sentences that are often difficult to read, especially for non-native English speakers.
 	- Available at [doi.org/10.51219/JAIMLD/praneeth-vadlapati/349](https://doi.org/10.51219/JAIMLD/praneeth-vadlapati/349)
 
+More information on my profile is at https://linktr.ee/prane.eth.
 
 ### LLMs - LangChain projects:
 - [LLMs - Chat with a Wikipedia page](/projects/LLM_Chat_with_Wikipedia_page.ipynb)
