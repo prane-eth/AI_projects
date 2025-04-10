@@ -1,6 +1,6 @@
 # AI Projects
 
-<!-- papers in 2025 -->
+**Papers of 2025:**
 - _LML-DAP_: Language Model Learning a Dataset for Data-Augmented Prediction - _Oct 2024 - Published in Jan 2025_
 	- Instead of ML, the paper uses the process of an LLM learning a dataset for context-aware classification decisions based on relevant data like RAG.
 	- Outcome: The predictions were accurate and transparent, as the system generates the reason behind each prediction.
@@ -9,7 +9,7 @@
 	- Trend-based SEO to make the content stay relevant to the users despite rapid changes in trends.
 	- Available at [github.com/Pro-GenAI/Auto-Trendy-Keywords](https://github.com/Pro-GenAI/Auto-Trendy-Keywords)
 
-<!-- 6 papers in 2024 -->
+**6 papers in 2024:**
 - _UpdAgent_: AI Agent Version Control Framework for Real-Time Updation of Tools - _Nov 2024_
 	- A framework that enables versioning for agents, which allows the updation of versions.
 	- Available at [github.com/Pro-GenAI/UpdAgent](https://github.com/Pro-GenAI/UpdAgent)
@@ -28,7 +28,7 @@
 	- Automated Prompt Engineering and testing to ensure perfect prompts are crafted.
 	- Available at [github.com/Pro-GenAI/Auto-Precise-Prompts](https://github.com/Pro-GenAI/Auto-Precise-Prompts)
 
-<!-- 6 papers in 2023 -->
+**6 papers in 2023:**
 - _Agent-Supervisor_: Supervising Actions of Autonomous AI Agents to Ensure Ethical Compliance - _Dec 2023_
 	- Flags harmful actions by agents before execution.
 	- Available at [doi.org/10.5281/zenodo.14288329](https://doi.org/10.5281/zenodo.14288329)
@@ -48,7 +48,7 @@
 	- Since the training data of LLM is mostly in English, the experiments finds the accuracy of various tasks using prompts in different languages.
 	- Available at [doi.org/10.5281/zenodo.14264199](https://doi.org/10.5281/zenodo.14264199)
 
-<!-- 6 papers in 2021-22 -->
+**6 papers in 2021-22:**
 - _EaseText_: Enhancing Comprehension of Complex Sentences using LLMs - _Dec 2022_
 	- Uses an LLM to simplify complex sentences that are often difficult to read, especially for non-native English speakers.
 	- Available at [doi.org/10.51219/JAIMLD/praneeth-vadlapati/349](https://doi.org/10.51219/JAIMLD/praneeth-vadlapati/349)
