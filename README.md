@@ -68,10 +68,10 @@
 	- Discusses the possibilities of using tokenization in multiple areas beyond NLP.
 	- Available at [doi.org/10.55041/IJSREM9532](https://doi.org/10.55041/IJSREM9532)
 
-Email: praneeth.vad@gmail.com
+Email: praneeth.vad@gmail.com \
 More information about me is at https://linktr.ee/prane.eth.
 
-### LLMs - LangChain projects:
+### LLMs - LangChain projects (2025):
 - [LLMs - Chat with a Wikipedia page](/projects/LLM_Chat_with_Wikipedia_page.ipynb)
 	- Used LangChain, RAG, and ChainLit (to host web page)
 - [LLMs - Feedback summarizer](/projects/LLM_Feedback_summarizer.ipynb)
