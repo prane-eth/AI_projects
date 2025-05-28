@@ -20,7 +20,13 @@ outputs/
 ollama
 .vscode*
 test.ipynb
+
+# models
 *.pth
+*.pt
+*.mar
+example.jpg
+model_handler.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
