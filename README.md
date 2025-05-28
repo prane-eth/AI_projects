@@ -1,5 +1,11 @@
 # AI Projects
 
+### Deep Learning projects:
+- [DL - Sentiment Analysis](/projects/DL_Sentiment_analysis.ipynb)
+	- Used embeddings and neural networks to classify the sentiment of IMDB comments (positive/negative).
+
+### LLM projects:
+
 **Papers of 2025:**
 - _LML-DAP_: Language Model Learning a Dataset for Data-Augmented Prediction - _Oct 2024 - Published in Jan 2025_
 	- Instead of ML, the paper uses the process of an LLM learning a dataset for context-aware classification decisions based on relevant data like RAG.
