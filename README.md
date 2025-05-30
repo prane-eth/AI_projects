@@ -1,19 +1,19 @@
 # AI Projects
 
 ### Deep Learning projects:
-- [DL - Sentiment Analysis](/projects/DL_Sentiment_analysis.ipynb)
+- [DL - Sentiment Analysis](/projects/DL_Sentiment_analysis.ipynb) - May 2025
 	- Used embeddings and neural networks to classify the sentiment of IMDB comments (positive/negative).
 
 ### LLM projects:
 
 **Papers of 2025:**
+- _AutoTrendyKeywords_: Real-Time AI-Driven Trend-Based SEO Using LLM - _Oct 2024 - Published in May 2025_
+	- Trend-based SEO to make the content stay relevant to the users despite rapid changes in trends.
+	- Available at [github.com/Pro-GenAI/Auto-Trendy-Keywords](https://github.com/Pro-GenAI/Auto-Trendy-Keywords)
 - _LML-DAP_: Language Model Learning a Dataset for Data-Augmented Prediction - _Oct 2024 - Published in Jan 2025_
 	- Instead of ML, the paper uses the process of an LLM learning a dataset for context-aware classification decisions based on relevant data like RAG.
 	- Outcome: The predictions were accurate and transparent, as the system generates the reason behind each prediction.
 	- Available at [github.com/Pro-GenAI/LML-DAP](https://github.com/Pro-GenAI/LML-DAP)
-- _AutoTrendyKeywords_: Real-Time AI-Driven Trend-Based SEO Using LLM - _Oct 2024 - Unpublished_
-	- Trend-based SEO to make the content stay relevant to the users despite rapid changes in trends.
-	- Available at [github.com/Pro-GenAI/Auto-Trendy-Keywords](https://github.com/Pro-GenAI/Auto-Trendy-Keywords)
 
 **6 papers in 2024:**
 - _UpdAgent_: AI Agent Version Control Framework for Real-Time Updation of Tools - _Nov 2024_
