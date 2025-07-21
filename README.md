@@ -7,6 +7,9 @@
 ### LLM projects:
 
 **Papers of 2025:**
+- _iRAT_: Replanning and Controlled Retrieval for Robust LLM Reasoning - _July 2025_
+	- Used re-planning and controlled retrieval to gain accuracy over CoT, RAG, and RAT.
+	- Available at [github.com/prane-eth/iRAT](https://github.com/prane-eth/iRAT)
 - _AutoTrendyKeywords_: Real-Time AI-Driven Trend-Based SEO Using LLM - _Oct 2024 - Published in May 2025_
 	- Trend-based SEO to make the content stay relevant to the users despite rapid changes in trends.
 	- Available at [github.com/Pro-GenAI/Auto-Trendy-Keywords](https://github.com/Pro-GenAI/Auto-Trendy-Keywords)
