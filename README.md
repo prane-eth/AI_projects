@@ -1,5 +1,9 @@
 # AI Projects
 
+### Recent work:
+- Open Source contributions: https://github.com/prane-eth/open-source_contributions
+- **iRAT** project (mentioned below).
+
 ### Deep Learning projects:
 - [DL - Sentiment Analysis](/projects/DL_Sentiment_analysis.ipynb) - May 2025
 	- Used embeddings and neural networks to classify the sentiment of IMDB comments (positive/negative).
