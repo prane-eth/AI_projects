@@ -1,8 +1,11 @@
 # AI Projects
+[![AI](https://img.shields.io/badge/AI-C21B00?style=for-the-badge&logo=openaigym&logoColor=white)]()
+[![LLMs](https://img.shields.io/badge/LLMs-1A535C?style=for-the-badge&logo=openai&logoColor=white)]()
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=ffdd54)](https://www.python.org/)
+
 
 ### Recent work:
 - Open Source contributions: [https://github.com/prane-eth/open-source_contributions](https://github.com/prane-eth/open-source_contributions/blob/main/README.md)
-- **iRAT** project (mentioned below).
 
 ### Deep Learning projects:
 - [DL - Sentiment Analysis](/projects/DL_Sentiment_analysis.ipynb) - May 2025
@@ -82,7 +85,7 @@
 	- Available at [doi.org/10.55041/IJSREM9532](https://doi.org/10.55041/IJSREM9532)
 
 Email: praneeth.vad@gmail.com \
-More information about me is at https://linktr.ee/prane.eth.
+More information about me is at https://prane-eth.github.io/.
 
 ### LLMs - LangChain projects (2025):
 - [LLMs - Chat with a Wikipedia page](/projects/LLM_Chat_with_Wikipedia_page.ipynb)
