@@ -13,7 +13,7 @@
 
 ### LLM projects:
 
-**Papers of 2025:**
+**Papers of 2025 (with projects):**
 - _iRAT_: Replanning and Controlled Retrieval for Robust LLM Reasoning - _July 2025_
 	- Used re-planning and controlled retrieval to gain accuracy over CoT, RAG, and RAT.
 	- Available at [github.com/prane-eth/iRAT](https://github.com/prane-eth/iRAT)
@@ -47,42 +47,39 @@
 **6 papers in 2023:**
 - _Agent-Supervisor_: Supervising Actions of Autonomous AI Agents to Ensure Ethical Compliance - _Dec 2023_
 	- Flags harmful actions by agents before execution.
-	- Available at [doi.org/10.5281/zenodo.14288329](https://doi.org/10.5281/zenodo.14288329)
+	- Available at [github.com/Pro-GenAI/Agent-Supervisor](https://github.com/Pro-GenAI/Agent-Supervisor)
 - Hierarchical Management of AI for Automated Monitoring and Query Resolution - _Oct 2023_
 	- Utilizes a large LLM to answer complex queries and supervise a smaller LLM.
-	- Available at [doi.org/10.47363/JAICC/2023(2)E229](https://doi.org/10.47363/JAICC/2023(2)E229)
+	- Available at [github.com/Pro-GenAI/AI-Hierarchy](https://github.com/Pro-GenAI/AI-Hierarchy)
 - _Does Seed Matter?_: Investigating the Effect of Random Seeds on LLM Accuracy Aug 2023
 	- Investigates the influence of the seed value that is used to control the randomness of an LLM.
-	- Available at [doi.org/10.5281/zenodo.14288248](https://doi.org/10.5281/zenodo.14288248)
+	- Available at [github.com/Pro-GenAI/PromptSeed](https://github.com/Pro-GenAI/PromptSeed)
 - Investigating the Impact of Linguistic Errors of Prompts on LLM Accuracy - _Jun 2023_
 	- Investigates the impact of errors such as grammatical errors and spelling errors on LLM accuracy.
-	- Available at [doi.org/10.56472/25832646/JETA-V3I6P110](https://doi.org/10.56472/25832646/JETA-V3I6P110)
+	- Available at [github.com/Pro-GenAI/PromptSpell](https://github.com/Pro-GenAI/PromptSpell)
 - _iSearch_: Enhanced Intelligent Search Based on a Query using LLMs - _Apr 2023_
 	- Automates the Prompt Engineering of hard prompts and the testing process to ensure perfect prompts are crafted.
-	- Available at [doi.org/10.5281/zenodo.14264215](https://doi.org/10.5281/zenodo.14264215)
+	- Available at [github.com/Pro-GenAI/iSearch](https://github.com/Pro-GenAI/iSearch)
 - Multilingual Prompting in LLMs: Investigating the Accuracy and Performance - _Feb 2023_
 	- Since the training data of LLM is mostly in English, the experiments finds the accuracy of various tasks using prompts in different languages.
-	- Available at [doi.org/10.5281/zenodo.14264199](https://doi.org/10.5281/zenodo.14264199)
+	- Available at [github.com/Pro-GenAI/PromptLang](https://github.com/Pro-GenAI/PromptLang)
 
-**6 papers in 2021-22:**
+**5 papers in 2021-22:**
 - _EaseText_: Enhancing Comprehension of Complex Sentences using LLMs - _Dec 2022_
 	- Uses an LLM to simplify complex sentences that are often difficult to read, especially for non-native English speakers.
-	- Available at [doi.org/10.51219/JAIMLD/praneeth-vadlapati/349](https://doi.org/10.51219/JAIMLD/praneeth-vadlapati/349)
+	- Available at [github.com/Pro-GenAI/EaseText](https://github.com/Pro-GenAI/EaseText)
 - AutoMarineWatcher: Real-Time Maritime Surveillance to Detect Threats using YOLO - _Aug 2022_
 	- Utilizes YOLO models to detect maritime threats such as pirates, terrorists, and attackers.
-	- Available at [doi.org/10.55041/ISJEM0023](https://doi.org/10.55041/ISJEM0023)
+	- Available at [github.com/Pro-GenAI/AutoMarineWatcher](https://github.com/Pro-GenAI/AutoMarineWatcher)
 - TokEncryption: Enhanced Hashing of Text using Tokenization - _May 2022_
 	- Uses NLP-based tokenization to generate numbers which get used for hashing a given text.
-	- Available at [doi.org/10.55041/IJSREM20280](https://doi.org/10.55041/IJSREM20280)
+	- Available at [github.com/Pro-GenAI/TokEncryption](https://github.com/Pro-GenAI/TokEncryption)
 - TokenizedDB: Text Tokenization using NLP for Enhanced Storage Efficiency and Data Privacy - _Feb 2022_
 	- Uses tokenization to generate numbers, which are used to encrypt the data in a database and save storage space.
-	- Available at [doi.org/10.55041/IJSREM11413](https://doi.org/10.55041/IJSREM11413)
+	- Available at [github.com/Pro-GenAI/TokenizedDB](https://github.com/Pro-GenAI/TokenizedDB)
 - TokChat: Tokenization of Text for Secured Peer-to-Peer Communication - _Oct 2021_
 	- Generates tokens from text to encrypt the text for an encrypted communication by disallowing vulnerabilities.
-	- Available at [doi.org/10.55041/IJSREM10800](https://doi.org/10.55041/IJSREM10800)
-- Tokenization Beyond NLP: Potential Applications in Data Analytics, Cybersecurity, and Beyond - _Jul 2021_
-	- Discusses the possibilities of using tokenization in multiple areas beyond NLP.
-	- Available at [doi.org/10.55041/IJSREM9532](https://doi.org/10.55041/IJSREM9532)
+	- Available at [github.com/Pro-GenAI/TokChat](https://github.com/Pro-GenAI/TokChat)
 
 Email: praneeth.vad@gmail.com \
 More information about me is at https://prane-eth.github.io/.
