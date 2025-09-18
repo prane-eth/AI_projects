@@ -13,7 +13,11 @@
 
 ### LLM projects:
 
-**Papers of 2025 (with projects):**
+- Multilingual-jailbreaking:
+	- Jailbreaks a modern LLM in multiple languages to bypass the restrictions and get the desired output.
+	- Available at [github.com/Pro-GenAI/Multilingual-jailbreaking](https://github.com/Pro-GenAI/Multilingual-jailbreaking)
+
+**LLM Research Papers of 2025 (with projects):**
 - _iRAT_: Replanning and Controlled Retrieval for Robust LLM Reasoning - _July 2025_
 	- Used re-planning and controlled retrieval to gain accuracy over CoT, RAG, and RAT.
 	- Available at [github.com/prane-eth/iRAT](https://github.com/prane-eth/iRAT)
