@@ -4,18 +4,24 @@
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=ffdd54)](https://www.python.org/)
 
 
-### Recent work:
-- Open Source contributions: [https://github.com/prane-eth/open-source_contributions](https://github.com/prane-eth/open-source_contributions/blob/main/README.md)
+### LLM projects:
+
+- Open Source contributions:
+	- Contributed to various open-source projects related to LLMs and AI.
+	- Available at [github.com/prane-eth/open-source_contributions](https://github.com/prane-eth/open-source_contributions/blob/main/README.md)
+- Smart-Prompt-Eval: Evaluating LLM Robustness using Manipulated Prompts:
+	- Evaluates LLMs using various manipulated prompts to stress-test the robustness of LLMs.
+	- Available at [github.com/Pro-GenAI/Smart-Prompt-Eval](https://github.com/Pro-GenAI/Smart-Prompt-Eval)
+- GPT-jailbreak-terror:
+	- Jailbreaks a modern LLM to bypass the restrictions and get the desired output.
+	- Available at [github.com/Pro-GenAI/GPT-jailbreak-terror](https://github.com/Pro-GenAI/GPT-jailbreak-terror)
+- Multilingual-jailbreaking:
+	- Jailbreaks a modern LLM in multiple languages to bypass the restrictions and get the desired output.
+	- Available at [github.com/Pro-GenAI/Multilingual-jailbreaking](https://github.com/Pro-GenAI/Multilingual-jailbreaking)
 
 ### Deep Learning projects:
 - [DL - Sentiment Analysis](/projects/DL_Sentiment_analysis.ipynb) - May 2025
 	- Used embeddings and neural networks to classify the sentiment of IMDB comments (positive/negative) using PyTorch.
-
-### LLM projects:
-
-- Multilingual-jailbreaking:
-	- Jailbreaks a modern LLM in multiple languages to bypass the restrictions and get the desired output.
-	- Available at [github.com/Pro-GenAI/Multilingual-jailbreaking](https://github.com/Pro-GenAI/Multilingual-jailbreaking)
 
 **LLM Research Papers of 2025 (with projects):**
 - _iRAT_: Replanning and Controlled Retrieval for Robust LLM Reasoning - _July 2025_
