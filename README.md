@@ -12,6 +12,8 @@
 - Smart-Prompt-Eval: Evaluating LLM Robustness using Manipulated Prompts:
 	- Evaluates LLMs using various manipulated prompts to stress-test the robustness of LLMs.
 	- Available at [github.com/Pro-GenAI/Smart-Prompt-Eval](https://github.com/Pro-GenAI/Smart-Prompt-Eval)
+- GameNet3-AI: Decentralized social platform for gamers:
+	- A full-stack AI+Web3 system that is a blockchain-based decentralized social platform for gamers that includes AI-generated images for games and minting NFTs for active users.
 - GPT-jailbreak-terror:
 	- Jailbreaks a modern LLM to bypass the restrictions and get the desired output.
 	- Available at [github.com/Pro-GenAI/GPT-jailbreak-terror](https://github.com/Pro-GenAI/GPT-jailbreak-terror)
