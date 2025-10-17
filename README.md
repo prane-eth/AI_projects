@@ -4,7 +4,14 @@
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=ffdd54)](https://www.python.org/)
 
 
-### LLM projects:
+### Deep Learning projects:
+- Agent Action Classifier: Classifying AI agent actions to ensure safety and reliability - Oct 2025
+	- Classifies the actions of an AI agent as harmful or safe using Deep Learning and NLP.
+	- Available at [github.com/Pro-GenAI/AgentActionClassifier](https://github.com/Pro-GenAI/AgentActionClassifier)
+- [Sentiment Analysis](/projects/DL_Sentiment_analysis.ipynb) - May 2025
+	- Used embeddings and neural networks to classify the sentiment of IMDB comments (positive/negative) using PyTorch.
+
+### LLM projects of 2025:
 
 - Open Source contributions:
 	- Contributed to various open-source projects related to LLMs and AI.
@@ -15,40 +22,6 @@
 - **GameNet3-AI**: Decentralized social platform for gamers:
 	- A full-stack AI+Web3 system that is a blockchain-based decentralized social platform for gamers that includes AI-generated images for games and minting NFTs for active users.
 	- Available at [github.com/prane-eth/GameNet3-AI](https://github.com/prane-eth/GameNet3-AI).
-- GPT-jailbreak-terror:
-	- Jailbreaks a modern LLM to bypass the restrictions and get the desired output.
-	- Available at [github.com/Pro-GenAI/GPT-jailbreak-terror](https://github.com/Pro-GenAI/GPT-jailbreak-terror)
-- Multilingual-jailbreaking:
-	- Jailbreaks a modern LLM in multiple languages to bypass the restrictions and get the desired output.
-	- Available at [github.com/Pro-GenAI/Multilingual-jailbreaking](https://github.com/Pro-GenAI/Multilingual-jailbreaking)
-
-### LLMs - LangChain projects:
-- [LLMs - Chat with a Wikipedia page](/projects/LLM_Chat_with_Wikipedia_page.ipynb)
-	- Used LangChain, RAG, and ChainLit (to host web page)
-- [LLMs - Feedback summarizer](/projects/LLM_Feedback_summarizer.ipynb)
-	- Used LangChain, Selenium, and Gradio (for hosting)
-- [LLMs - Chat with an image](/projects/LLM_Image_chat.py)
-	- Used LangChain, and StreamLit (for hosting)
-- [LLMs - Prompt shortener](/projects/LLM_Prompt_shortener.ipynb)
-	- Used LangChain and Gradio (for hosting)
-- [LLMs - Agents](/projects/LLM_Agents.ipynb)
-	- Used LangChain Agents for various tasks like searching online, fetching weather, math operations, running python code, etc.
-- [LLMs - Chat with Data](/projects/LLM_Chat_with_Data.ipynb)
-	- Useful to chat with data to get useful insights to increase the profitability of the companies
-	- Generated synthetic data using LLMs
-- [LLMs - Model Deployment](/projects/LLM_Model_Deployment.ipynb)
-	- Used LMDeploy and FastAPI to deploy the model by emulating OpenAI API
-<!-- - [LLMs - Fine-tuning, RLHF, and RLAIF](/projects/LLM_Fine-tuning_RLHF.ipynb)
-	- Used Fine-tuning, RLHF, RLAIF (Reinforcement Learning with AI Feedback), and Responsible AI -->
-
-### Deep Learning projects:
-- Agent Action Classifier: Classifying AI agent actions to ensure safety and reliability - Oct 2025
-	- Classifies the actions of an AI agent as harmful or safe using Deep Learning and NLP.
-	- Available at [github.com/Pro-GenAI/AgentActionClassifier](https://github.com/Pro-GenAI/AgentActionClassifier)
-- [Sentiment Analysis](/projects/DL_Sentiment_analysis.ipynb) - May 2025
-	- Used embeddings and neural networks to classify the sentiment of IMDB comments (positive/negative) using PyTorch.
-
-### LLM projects of 2025:
 - **iRAT**: Replanning and Controlled Retrieval for Robust LLM Reasoning - _July 2025_
 	- Used re-planning and controlled retrieval to gain accuracy over CoT, RAG, and RAT.
 	- Available at [github.com/prane-eth/iRAT](https://github.com/prane-eth/iRAT)
@@ -116,6 +89,25 @@
 - **TokChat**: Tokenization of Text for Secured Peer-to-Peer Communication - _Oct 2021_
 	- Generates tokens from text to encrypt the text for an encrypted communication by disallowing vulnerabilities.
 	- Available at [github.com/Pro-GenAI/TokChat](https://github.com/Pro-GenAI/TokChat)
+
+### LLMs - LangChain projects:
+- [LLMs - Chat with a Wikipedia page](/projects/LLM_Chat_with_Wikipedia_page.ipynb)
+	- Used LangChain, RAG, and ChainLit (to host web page)
+- [LLMs - Feedback summarizer](/projects/LLM_Feedback_summarizer.ipynb)
+	- Used LangChain, Selenium, and Gradio (for hosting)
+- [LLMs - Chat with an image](/projects/LLM_Image_chat.py)
+	- Used LangChain, and StreamLit (for hosting)
+- [LLMs - Prompt shortener](/projects/LLM_Prompt_shortener.ipynb)
+	- Used LangChain and Gradio (for hosting)
+- [LLMs - Agents](/projects/LLM_Agents.ipynb)
+	- Used LangChain Agents for various tasks like searching online, fetching weather, math operations, running python code, etc.
+- [LLMs - Chat with Data](/projects/LLM_Chat_with_Data.ipynb)
+	- Useful to chat with data to get useful insights to increase the profitability of the companies
+	- Generated synthetic data using LLMs
+- [LLMs - Model Deployment](/projects/LLM_Model_Deployment.ipynb)
+	- Used LMDeploy and FastAPI to deploy the model by emulating OpenAI API
+<!-- - [LLMs - Fine-tuning, RLHF, and RLAIF](/projects/LLM_Fine-tuning_RLHF.ipynb)
+	- Used Fine-tuning, RLHF, RLAIF (Reinforcement Learning with AI Feedback), and Responsible AI -->
 
 Email: praneeth.vad@gmail.com \
 More information about me is at https://prane-eth.github.io/.
