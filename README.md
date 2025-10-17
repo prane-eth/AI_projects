@@ -42,10 +42,13 @@
 	- Used Fine-tuning, RLHF, RLAIF (Reinforcement Learning with AI Feedback), and Responsible AI -->
 
 ### Deep Learning projects:
-- [DL - Sentiment Analysis](/projects/DL_Sentiment_analysis.ipynb) - May 2025
+- Agent Action Classifier: Classifying AI agent actions to ensure safety and reliability - Oct 2025
+	- Classifies the actions of an AI agent as harmful or safe using Deep Learning and NLP.
+	- Available at [github.com/Pro-GenAI/AgentActionClassifier](https://github.com/Pro-GenAI/AgentActionClassifier)
+- [Sentiment Analysis](/projects/DL_Sentiment_analysis.ipynb) - May 2025
 	- Used embeddings and neural networks to classify the sentiment of IMDB comments (positive/negative) using PyTorch.
 
-### LLM Research Papers of 2025 (with projects):
+### LLM projects of 2025:
 - **iRAT**: Replanning and Controlled Retrieval for Robust LLM Reasoning - _July 2025_
 	- Used re-planning and controlled retrieval to gain accuracy over CoT, RAG, and RAT.
 	- Available at [github.com/prane-eth/iRAT](https://github.com/prane-eth/iRAT)
@@ -57,7 +60,7 @@
 	- Outcome: The predictions were accurate and transparent, as the system generates the reason behind each prediction.
 	- Available at [github.com/Pro-GenAI/LML-DAP](https://github.com/Pro-GenAI/LML-DAP)
 
-### 6 papers in 2024:
+### 6 projects of 2024:
 - **UpdAgent**: AI Agent Version Control Framework for Real-Time Updation of Tools - _Nov 2024_
 	- A framework that enables versioning for agents, which allows the updation of versions.
 	- Available at [github.com/Pro-GenAI/UpdAgent](https://github.com/Pro-GenAI/UpdAgent)
@@ -77,7 +80,7 @@
 	- Automated Prompt Engineering and testing to ensure perfect prompts are crafted.
 	- Available at [github.com/Pro-GenAI/Auto-Precise-Prompts](https://github.com/Pro-GenAI/Auto-Precise-Prompts)
 
-### 6 papers in 2023:
+### 6 projects of 2023:
 - **Agent-Supervisor**: Supervising Actions of Autonomous AI Agents to Ensure Ethical Compliance - _Dec 2023_
 	- Flags harmful actions by agents before execution.
 	- Available at [github.com/Pro-GenAI/Agent-Supervisor](https://github.com/Pro-GenAI/Agent-Supervisor)
@@ -97,7 +100,7 @@
 	- Since the training data of LLM is mostly in English, the experiments finds the accuracy of various tasks using prompts in different languages.
 	- Available at [github.com/Pro-GenAI/PromptLang](https://github.com/Pro-GenAI/PromptLang)
 
-### 5 papers in 2021-22:
+### 5 projects of 2021-22:
 - **EaseText**: Enhancing Comprehension of Complex Sentences using LLMs - _Dec 2022_
 	- Uses an LLM to simplify complex sentences that are often difficult to read, especially for non-native English speakers.
 	- Available at [github.com/Pro-GenAI/EaseText](https://github.com/Pro-GenAI/EaseText)
