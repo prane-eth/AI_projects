@@ -20,6 +20,12 @@ outputs/
 ollama
 .vscode*
 test.ipynb
+agent_logs/
+mlruns.db/
+unused/
+*.sqlite
+*.db
+*.mako
 
 # models
 *.pth
@@ -151,6 +157,7 @@ celerybeat.pid
 
 # Environments
 .env
+.env.main
 .venv
 env/
 venv/
